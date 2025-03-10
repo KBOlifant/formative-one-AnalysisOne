@@ -19,12 +19,26 @@
   border-radius: 26px;
 }
 
+.DataPreview{
+  background-color: #282c34;
+  height: 500px;
+  width: 50%;
+  border-radius: 24px;
+}
+
+.compareSection{
+  background-color: #a10702;
+  height: 1000px;
+  width: 1000px;
+}
+
 .outerNav{
   background-color: #282c34;
 }
 
-.piearea{
-  width: 500px;
+.pieArea{
+  width: 300px;
+  margin: auto;
 }
 
 .headerSection{
