@@ -10,12 +10,27 @@
 }
 
 .homeSection{
-  background-color: rgb(190, 0, 0);
+  background-color: #a10702;
+}
+
+#innerNav{
+  width: 70%;
+  background-color: #0000002f;
+  border-radius: 26px;
+}
+
+.outerNav{
+  background-color: #282c34;
+}
+
+.piearea{
+  width: 500px;
 }
 
 .headerSection{
-  width: 80%;
+  width: 60%;
   text-align: center;
+  color: rgb(216, 216, 216);
 }
 
 @media (prefers-reduced-motion: no-preference) {
