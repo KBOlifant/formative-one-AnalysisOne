@@ -13,32 +13,144 @@
   background-color: #a10702;
 }
 
+.analysisSection{
+  background-color: #a10702;
+  height: 1000px;
+}
+
 #innerNav{
   width: 70%;
   background-color: #0000002f;
   border-radius: 26px;
 }
 
+#VS-text{
+  color: #ED9642;
+  font-size: 55px;
+  margin: 0;
+}
+
+#team-text{
+  color: white;
+  font-weight: 100;
+  margin: 0;
+  padding-top: 20px;
+}
+
+#_card{
+  border-style: none;
+}
+
+#teamA-Button{
+  color: rgb(255, 35, 35);
+  font-weight: 600;
+  margin: 0;
+}
+
+#teamB-Button{
+  color: #ED9642;
+  font-weight: 600;
+  margin: 0;
+}
+
+#VS-text2{
+  color: #0C77F8;
+  background-color: #0000004f;
+  padding: 10px 0px;
+  border-radius: 20px;
+  margin-bottom: 20px;
+}
+
 .DataPreview{
-  background-color: #282c34;
-  height: 500px;
-  width: 50%;
+  background-color: #393E41;
   border-radius: 24px;
+  width: fit-content;
 }
 
 .compareSection{
-  background-color: #a10702;
-  height: 1000px;
-  width: 1000px;
+  background-color: #2A1C34;
+  padding-bottom: 50px;
+}
+
+.asys-btn-dimensions{
+  width: 260px;
+  height: 60px;
+}
+
+.bigNav{
+  background-color: #393E41;
+}
+
+.asys-btn{
+  font-weight: 500;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 24px;
+  font-size: 28px;
+  transition: background-color 0.1s ease-in;
+}
+
+.active{
+  background-color: #00000042;
+  
+}
+
+.asys-btn:hover{
+  background-color: #00000059;
+}
+
+.selectionIMG{
+  box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.219);
+  transition: box-shadow 0.3s ease, transform 0.2s ease;
+}
+
+.selectionIMG:hover{
+  box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.39);
+  transform: scale(1.01);
+}
+
+.analysisButtonGroup{
+  width: 60%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  padding-top: 80px;
+}
+
+.Cards{
+  gap: 32px;
+}
+
+.teamScroll{
+  margin: auto;
+  padding: 150px 0px;
+}
+
+.compareItems{
+  margin: auto;
+  width: 90%;
+  padding: 60px;
+}
+
+.compareItems img{
+  border-radius: 24px;
+}
+
+.compareTitle{
+  width: 70%;
+  text-align: center;
+  padding-top: 60px;
+  border-bottom: red;
 }
 
 .outerNav{
-  background-color: #282c34;
+  background-color: #393E41;
 }
 
 .pieArea{
   width: 300px;
-  margin: auto;
+  margin: 100px 400px;
 }
 
 .headerSection{

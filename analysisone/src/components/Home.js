@@ -1,5 +1,5 @@
 import Container from "react-bootstrap/esm/Container";
-import Piechart from './PieChart';
+import ScrollSection from './ComponentTesting';
 import PieChart from "./PieChart";
 
 function homeSection() {
@@ -11,7 +11,7 @@ function homeSection() {
                 <h4 className="text-white text-center p-4">Data Preview</h4>
             </div>
 
-            <div className="DataPreview m-auto border-4 border-white">
+            <div className="DataPreview m-auto border-3 border-white">
                 <div className="pieArea">
                     <PieChart />
                 </div>
@@ -21,6 +21,7 @@ function homeSection() {
                 <Piechart />
             </div> */}
             
+            <ScrollSection />
         </section>
     );
 }

@@ -5,7 +5,7 @@ import Navbar from 'react-bootstrap/Navbar';
 //<Navbar.Brand href="#home">Navbar</Navbar.Brand>
 function ColorSchemesExample() {
   return (
-    <Navbar expand='md' bg="dark" className="flex justify-between p-4 border-bottom border-white" data-bs-theme="dark">
+    <Navbar expand='md' className="flex justify-between p-4 border-bottom border-white bigNav" data-bs-theme="dark">
         <Container>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse>
