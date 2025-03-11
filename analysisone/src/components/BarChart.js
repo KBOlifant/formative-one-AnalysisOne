@@ -1,4 +1,5 @@
-import React from 'react';
+import React from "react";
+import { Bar } from "react-chartjs-2";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -7,50 +8,45 @@ import {
   Title,
   Tooltip,
   Legend,
-} from 'chart.js';
-import { Bar } from 'react-chartjs-2';
-import faker from 'faker';
+} from "chart.js";
 
-ChartJS.register(
-  CategoryScale,
-  LinearScale,
-  BarElement,
-  Title,
-  Tooltip,
-  Legend
-);
+ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
-export const options = {
-  responsive: true,
-  plugins: {
-    legend: {
-      position: 'top' as const,
+const BarChart = () => {
+  const labels = ["Round 1", "Round 2", "Round 3", "Round 4", "Round 5", "Round 6"];
+  const dataset1 = labels.map(() => Math.floor(Math.random() * 100));
+  const dataset2 = labels.map(() => Math.floor(Math.random() * 100));
+
+  const data = {
+    labels,
+    datasets: [
+      {
+        label: "Team A",
+        data: dataset1,
+        backgroundColor: "#A10702",
+      },
+      {
+        label: "Team B",
+        data: dataset2,
+        backgroundColor: "#DC6D04",
+      },
+    ],
+  };
+
+  const options = {
+    responsive: true,
+    plugins: {
+      legend: {
+        position: "top",
+      },
+      title: {
+        display: true,
+        text: "Comparison of Points between Mclaren and Mercedes",
+      },
     },
-    title: {
-      display: true,
-      text: 'Chart.js Bar Chart',
-    },
-  },
+  };
+
+  return <Bar data={data} options={options} />;
 };
 
-const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
-
-export const data = {
-  labels,
-  datasets: [
-    {
-      label: 'Dataset 1',
-      data: labels.map(() => faker.datatype.number({ min: 0, max: 1000 })),
-      backgroundColor: 'rgba(255, 99, 132, 0.5)',
-    },
-    {
-      label: 'Dataset 2',
-      data: labels.map(() => faker.datatype.number({ min: 0, max: 1000 })),
-      backgroundColor: 'rgba(53, 162, 235, 0.5)',
-    },
-  ],
-};
-
-export function App() {
-  return <Bar options={options} data={data} />;
-}
+export default BarChart;

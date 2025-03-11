@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@fontsource/tomorrow": "^5.2.5",
     "@tailwindcss/vite": "^4.0.12",
     "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.6.3",
@@ -10,6 +11,7 @@
     "@testing-library/user-event": "^13.5.0",
     "bootstrap": "^5.3.3",
     "chart.js": "^4.4.8",
+    "faker": "^6.6.6",
     "lucide-react": "^0.479.0",
     "react": "^19.0.0",
     "react-bootstrap": "^2.10.9",

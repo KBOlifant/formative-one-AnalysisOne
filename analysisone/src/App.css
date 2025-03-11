@@ -1,5 +1,35 @@
 @import "tailwindcss";
 
+.tomorrow-extralight{
+  font-family: "Tomorrow", sans-serif;
+  font-weight: 200;
+  font-style: normal;
+}
+
+.tomorrow-light {
+  font-family: "Tomorrow", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.tomorrow-bold {
+  font-family: "Tomorrow", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.tomorrow-extrabold {
+  font-family: "Tomorrow", sans-serif;
+  font-weight: 800;
+  font-style: normal;
+}
+
+h1{
+  font-family: "Tomorrow", sans-serif;
+  font-weight: 800;
+  font-style: normal;
+}
+
 .App {
   text-align: center;
 }
@@ -19,10 +49,49 @@
   height: 1000px;
 }
 
+.text-align-center{
+  text-align: center;
+}
+
+.infoDisplay{
+  background-image: linear-gradient(rgb(53, 53, 53), rgb(61, 61, 61), rgb(65, 0, 0));
+  margin: auto;
+  margin-top: 100px;
+  height: fit-content;
+  width: 60%;
+  border-radius: 32px;
+  border-width: 3px;
+  border-color: rgb(199, 199, 199);
+  box-shadow: 20px 20px 5px rgba(0, 0, 0, 0.329);
+  padding: 50px;
+}
+
+.headerContainer{
+  background-color: #2A1C34;
+  padding: 50px 0px 50px 0px;
+  margin-bottom: 100px;
+  box-shadow: 0px 10px 5px rgba(0, 0, 0, 0.404);
+}
+
+#navLogo{
+  width: 120px;
+  position: absolute;
+  border-radius: 20px;
+  left: 3%;
+}
+
+#nav-abt-api{
+  color: white;
+  position: absolute;
+  right: 3%;
+  display: flex;
+}
+
 #innerNav{
-  width: 70%;
+  width: 60%;
   background-color: #0000002f;
   border-radius: 26px;
+  font-size: 20px;
 }
 
 #VS-text{
@@ -44,13 +113,11 @@
 
 #teamA-Button{
   color: rgb(255, 35, 35);
-  font-weight: 600;
   margin: 0;
 }
 
 #teamB-Button{
   color: #ED9642;
-  font-weight: 600;
   margin: 0;
 }
 
@@ -67,10 +134,32 @@
   background-color: rgba(0, 0, 0, 0.11);
 }
 
+#compareSubSection{
+  width: 100%;
+  border-style: none;
+  padding-bottom: 50px;
+}
+
+.pieArea{
+  padding: 100px 200px;
+  width: 1400px;
+}
+
+.pieArea button{
+  border-radius: 5px;
+}
+
+.previewVisuals{
+  margin: auto;
+  width: 500px;
+  height: 500px;
+}
+
 .DataPreview{
-  background-color: #393E41;
+  background-image: linear-gradient(rgb(53, 53, 53), rgb(61, 61, 61), rgb(65, 0, 0));
   border-radius: 24px;
   width: fit-content;
+  box-shadow: 20px 20px 5px rgba(0, 0, 0, 0.329);
 }
 
 .compareSection{
@@ -79,6 +168,7 @@
 }
 
 .homeCards{
+  background-color: red;
   box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.219);
   transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
@@ -97,17 +187,13 @@
   background-color: #393E41;
 }
 
-.previewVisuals{
-  margin: 80px;
-}
-
 .asys-btn{
   font-weight: 500;
   color: white;
   padding: 10px 20px;
   border: none;
   border-radius: 24px;
-  font-size: 28px;
+  font-size: 26px;
   transition: background-color 0.1s ease-in;
 }
 
@@ -144,6 +230,8 @@
 .teamScroll{
   margin: auto;
   padding: 150px 0px;
+  width: 90%;
+  border-radius: 24px;
   box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.219);
 }
 
@@ -160,18 +248,32 @@
 }
 
 .compareTitle{
-  width: 70%;
   text-align: center;
   padding-top: 60px;
-  border-bottom: red;
+  background-color: #2A1C34;
+  width: 80%;
+  border-color: #86ACA7;
+  padding-bottom: 5px;
+  border-width: 2px;
+  border-top-style: none;
+  border-left-style: none;
+  border-right-style: none;
+  border-bottom-style: solid;
+}
+
+.compareTitleSection{
+  width: 70%;
+  margin: auto;
+  border-color: red;
+  border-width: 2px;
+  border-top-style: none;
+  border-left-style: none;
+  border-right-style: none;
+  border-bottom-style: solid;
 }
 
 .outerNav{
   background-color: #393E41;
-}
-
-.pieArea{
-  padding: 100px 300px;
 }
 
 .headerSection{

@@ -2,22 +2,25 @@ import { Pi } from 'lucide-react';
 import imageHolder from '../assets/3724vwkce7oy.png';
 import Carousel from 'react-bootstrap/Carousel';
 import PieChart from "./PieChart";
+import BarChart from "./BarChart";
 
 const main_Carousel = () => {
     const carouselItems = [
-      {title: '', 'text': ''},
+      {Componenet: <PieChart />, title: '', 'text': 'Pie Chart'},
+      {Componenet: <PieChart />, title: '', 'text': 'Pie Chart'},
+      {Componenet: <PieChart />, title: '', 'text': 'Pie Chart'}
     ];
   
     const displayCarousel = (carousel, index) => {
       return(
         <Carousel.Item id='carouselItem' key={index}>
             <div className='previewVisuals'>
-                <PieChart />
+                {carousel.Componenet}
             </div>
           
             <Carousel.Caption>
               <h3>{carousel.title}</h3>
-              <p>{carousel.text}</p>
+              <p className='tomorrow-light'>{carousel.text}</p>
             </Carousel.Caption>
         </Carousel.Item>
       )
