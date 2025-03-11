@@ -1,14 +1,19 @@
-import imageHolder from '../assets/3724vwkce7oy.png'
+import { Pi } from 'lucide-react';
+import imageHolder from '../assets/3724vwkce7oy.png';
+import Carousel from 'react-bootstrap/Carousel';
+import PieChart from "./PieChart";
 
 const main_Carousel = () => {
     const carouselItems = [
-      {title: 'A New Hope', 'text': ''},
+      {title: '', 'text': ''},
     ];
   
     const displayCarousel = (carousel, index) => {
       return(
-        <Carousel.Item key={index}>
-            <img src={imageHolder} width={1500} height={650} className='blackout' />
+        <Carousel.Item id='carouselItem' key={index}>
+            <div className='previewVisuals'>
+                <PieChart />
+            </div>
           
             <Carousel.Caption>
               <h3>{carousel.title}</h3>

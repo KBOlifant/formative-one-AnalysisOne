@@ -16,8 +16,8 @@ function App() {
       
       <Routes>
           <Route path="/Home" element={<Home />} />
-          <Route path="/Comparison" element={<Comparison />} />
           <Route path="/Timeline" element={<Timeline />} />
+          <Route path="/Comparison" element={<Comparison />} />
       </Routes>
     </Router>
     </>
