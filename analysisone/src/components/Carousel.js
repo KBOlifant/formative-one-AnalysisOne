@@ -6,9 +6,9 @@ import BarChart from "./BarChart";
 
 const main_Carousel = () => {
     const carouselItems = [
-      {Componenet: <PieChart />, title: '', 'text': 'Pie Chart'},
-      {Componenet: <PieChart />, title: '', 'text': 'Pie Chart'},
-      {Componenet: <PieChart />, title: '', 'text': 'Pie Chart'}
+      {Componenet: <PieChart />, title: '', 'text': '2024 Points'},
+      {Componenet: <PieChart />, title: '', 'text': '2024 Top Speed'},
+      {Componenet: <BarChart />, title: '', 'text': '2024 Fastest Lap Time'}
     ];
   
     const displayCarousel = (carousel, index) => {

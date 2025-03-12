@@ -44,7 +44,7 @@ function Home() {
         <section className="analysisSection">
             <div className="analysisButtonGroup tomorrow-extralight">
                 <button className="asys-btn asys-btn-dimensions active ">Points</button>
-                <button className="asys-btn asys-btn-dimensions">Top Speed</button>
+                <button className="asys-btn asys-btn-dimensions">Average Speed</button>
                 <button className="asys-btn asys-btn-dimensions">Fastest Lap Time</button>
                 <button className="asys-btn asys-btn-dimensions">Position</button>
             </div>

@@ -13,11 +13,11 @@ const chartOptions = {
 
 const PieChart = () => {
   const data = {
-    labels: ["Red", "Blue", "Yellow"],
+    labels: ["Mclaren", "mercedes", "Redbull", "Alpine", "Ferrari", "Haas"],
     datasets: [
       {
-        data: [30, 50, 20],
-        backgroundColor: ["#FB932F", "#C97526", "#7E4918"],
+        data: [7, 10, 12, 15, 20, 36],
+        backgroundColor: ["#FB932F", "#2e7ad1", "#1330a8", "#27d992", "#c90a0a", "#961868"],
       },
     ],
   };
