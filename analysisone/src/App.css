@@ -162,7 +162,7 @@ h1{
 .DataPreview{
   background-image: linear-gradient(rgb(53, 53, 53), rgb(61, 61, 61), rgb(65, 0, 0));
   border-radius: 24px;
-  width: fit-content;
+  width: 80%;
   box-shadow: 20px 20px 5px rgba(0, 0, 0, 0.329);
 }
 

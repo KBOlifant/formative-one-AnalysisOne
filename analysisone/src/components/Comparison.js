@@ -34,9 +34,9 @@ function Home() {
         <div className="compareTitle m-auto tomorrow-extralight" id="compareSubSection">
             <div className="compareTitleSection">
                 <Row>
-                    <Col><h2 id="teamA-Button" className="asys-btn team-btn">Team A</h2></Col>
+                    <Col><h2 id="teamA-Button" className="asys-btn team-btn">Bar Chart</h2></Col>
                     <Col><h1 id="VS-text2">2024 : Round 2</h1></Col>
-                    <Col><h2 id="teamB-Button" className="asys-btn">Team B</h2></Col>
+                    <Col><h2 id="teamB-Button" className="asys-btn">Line Chart</h2></Col>
                 </Row>
             </div>   
         </div>
@@ -48,6 +48,11 @@ function Home() {
                 <button className="asys-btn asys-btn-dimensions">Fastest Lap Time</button>
                 <button className="asys-btn asys-btn-dimensions">Position</button>
             </div>
+
+            {/* <div className="analysisButtonGroup tomorrow-extralight">
+                <button className="asys-btn asys-btn-dimensions active ">Teams</button>
+                <button className="asys-btn asys-btn-dimensions">Drivers</button>
+            </div> */}
 
             <div>
                 <div className="infoDisplay">
