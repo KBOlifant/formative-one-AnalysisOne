@@ -13,7 +13,7 @@ import {
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
 const BarChart = () => {
-  const labels = ["Round 1", "Round 2", "Round 3", "Round 4", "Round 5", "Round 6"];
+  const labels = ["Q1", "Q2", "Q3"];
   const dataset1 = labels.map(() => Math.floor(Math.random() * 100));
   const dataset2 = labels.map(() => Math.floor(Math.random() * 100));
 
@@ -21,7 +21,7 @@ const BarChart = () => {
     labels,
     datasets: [
       {
-        label: "Team A",
+        label: "Mercedes",
         data: dataset1,
         backgroundColor: "#A10702EE",
         borderColor: 'red',
@@ -29,7 +29,7 @@ const BarChart = () => {
         borderWidth: "4",
       },
       {
-        label: "Team B",
+        label: "MClaren",
         data: dataset2,
         backgroundColor: "#DC6D04AA",
         borderColor: 'orange',
@@ -47,8 +47,11 @@ const BarChart = () => {
       },
       title: {
         display: true,
-        text: "Comparison of Points between Mclaren and Mercedes",
+        text: "Qualifier Points",
       },
+      y: {
+        label: "Time in Secconds"
+      }
     },
   };
 

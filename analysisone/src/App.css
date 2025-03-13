@@ -46,7 +46,12 @@ h1{
 
 .analysisSection{
   background: url('./assets/BackgroundIMG.png') center no-repeat;
-  height: 1000px;
+  padding-bottom: 200px;
+}
+
+.analysisSection2{
+  background: url('./assets/BGIMGCARD.png') center no-repeat;
+  padding: 200px 0px;
 }
 
 .text-align-center{
@@ -54,11 +59,12 @@ h1{
 }
 
 .infoDisplay{
-  background-image: linear-gradient(rgb(53, 53, 53), rgb(61, 61, 61), rgb(65, 0, 0));
+  background-image: url('./assets/GraphBG.png');
+  background-size: cover;
   margin: auto;
-  margin-top: 100px;
+  margin-top: 50px;
   height: fit-content;
-  width: 60%;
+  width: 70%;
   border-radius: 32px;
   border-width: 2px;
   border-color: rgb(199, 199, 199);
@@ -145,12 +151,9 @@ h1{
 }
 
 .pieArea{
-  padding: 100px 200px;
+  padding: 100px 0px;
   width: 1400px;
-}
-
-.pieArea button{
-  border-radius: 5px;
+  margin: auto;
 }
 
 .previewVisuals{
@@ -160,7 +163,8 @@ h1{
 }
 
 .DataPreview{
-  background-image: linear-gradient(rgb(53, 53, 53), rgb(61, 61, 61), rgb(65, 0, 0));
+  background-image: url('./assets/GraphBG.png');
+  background-size: cover;
   border-radius: 24px;
   width: 80%;
   box-shadow: 20px 20px 5px rgba(0, 0, 0, 0.329);
@@ -189,7 +193,7 @@ h1{
 }
 
 .bigNav{
-  background-color: #393E41;
+  background-color: #2b2f31;
 }
 
 .asys-btn{
@@ -233,19 +237,27 @@ h1{
 }
 
 .teamScroll{
-  margin: auto;
-  padding: 150px 0px;
+  margin: 150px auto;
+  padding: 80px 0px;
   width: 90%;
   border-radius: 24px;
   box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.219);
+  background-image: url('./assets/BGIMGCARD.png');
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .compareItems{
   margin: auto;
+  margin-top: 50px;
   width: 90%;
   padding: 60px;
   box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.151);
   border-radius: 24px;
+  background-image: url('assets/Compar.jpeg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-blend-mode: lighten;
 }
 
 .compareItems img{
@@ -277,6 +289,28 @@ h1{
   border-bottom-style: solid;
 }
 
+.auxInfo{
+  background-image: url('assets/GraphBG.jpeg');
+  background-size: cover;
+  margin: auto;
+  gap: 200px;
+  border-radius: 50px;
+  border-width: 2px;
+  border-style: solid;
+  border-color: white;
+  padding: 50px;
+  width: 90%;
+}
+
+.auxGraphs{
+  gap: 24px;
+}
+
+.graphContainer{
+  width: 90%;
+  margin: auto;
+}
+
 .outerNav{
   background-color: #393E41;
 }
@@ -285,6 +319,16 @@ h1{
   width: 60%;
   text-align: center;
   color: rgb(216, 216, 216);
+}
+
+.IAS-container {
+  width: 100%; /* Full width */
+  height: 500px; /* Fixed height for the chart */
+  margin: 0 auto; /* Center the container */
+  position: relative; /* Ensure proper positioning */
+  padding: 20px 0px;
+  background-image: radial-gradient(circle, rgba(0, 0, 0, 0.233), rgba(0, 0, 0, 0.144), rgba(0, 0, 0, 0.315));
+  border-radius: 48px;
 }
 
 @media (prefers-reduced-motion: no-preference) {

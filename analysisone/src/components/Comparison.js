@@ -6,6 +6,9 @@ import CompareHolderA from '../assets/AdobeStock_586498710.jpeg'
 import CompareHolderB from '../assets/AdobeStock_5864987102.jpeg'
 import Cards from './Card';
 import Barchart from './BarChart';
+import _lineChart from './lineChart';
+import _raderChart from './radarChart';
+import QBarChart from './QuarterBarChart';
 
 function Home() {
   return(
@@ -54,12 +57,29 @@ function Home() {
                 <button className="asys-btn asys-btn-dimensions">Drivers</button>
             </div> */}
 
-            <div>
+            <div className="infoOuter">
                 <div className="infoDisplay">
-                    <Barchart />
+                    <_lineChart />
                 </div>
             </div>
+        </section>
 
+        <section className="analysisSection2">
+            <div className="graphContainer">
+                <Row className="auxGraphs">
+                    <Col>
+                        <div className="auxInfo">
+                            <_raderChart />
+                        </div>
+                    </Col>
+
+                    <Col>
+                        <div className="auxInfo">
+                            <QBarChart />
+                        </div>
+                    </Col>
+                </Row>
+            </div>
         </section>
     </>
   );
