@@ -45,7 +45,8 @@ h1{
 }
 
 .analysisSection{
-  background: url('./assets/BackgroundIMG.png') center no-repeat;
+  background: url('./assets/SelecionSectionIMG2.jpeg') center no-repeat;
+  background-size: cover;
   padding-bottom: 200px;
 }
 
