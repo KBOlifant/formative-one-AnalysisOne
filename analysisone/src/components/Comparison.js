@@ -9,6 +9,58 @@ import Barchart from './BarChart';
 import _lineChart from './lineChart';
 import _raderChart from './radarChart';
 import QBarChart from './QuarterBarChart';
+import axios from 'axios';
+
+const labels = ['Round 1', 'Round 2', 'Round 3', 'Round 4', 'Round 5', 'Round 6', 'Round 7', 'Round 8', 'Round 9', 'Round 10', 'Round 11', 'Round 12'];
+
+async function getTeamData(team){
+    const apiURL = 'https://api.jolpi.ca//ergast/f1/2024/constructors/'+team+'/results/';
+
+    axios.get(apiURL, {
+        params: {
+            limit: 100
+            }
+        })
+    
+      .then(response => {
+        // Handle the success response
+        console.log('Response:', response.data);
+      })
+      .catch(error => {
+        // Handle any errors
+        console.error('Error:', error);
+    });
+    
+    const fetchF1Data = async () => {
+        try {
+            const response = await axios.get(apiURL);
+            return response.data;
+        } catch (error) {
+            console.error("Error fetching dog data:", error);
+        }
+    };
+    
+    
+    
+    async function getData(){
+        let Currentdata = await axios.get(apiURL);
+        let RoundData = [];
+        console.log(Currentdata.data.MRData);
+        for (let index = 0; index < labels.length; index++) {
+            console.log(Currentdata.data.MRData);
+            RoundData.push(parseInt(Currentdata.data.MRData.RaceTable.Races[index].Results[0].points) + parseInt(Currentdata.data.MRData.RaceTable.Races[index].Results[1].points));
+        }
+
+        return RoundData;
+    }
+
+    return getData();
+}
+//console.log(await getTeamData("ferrari"));
+let dataset1 = await getTeamData("ferrari"); 
+let dataset2 = await getTeamData("mercedes"); 
+
+//getTeamData();
 
 function Home() {
   return(
@@ -75,7 +127,7 @@ function Home() {
             <div className="infoOuter">
                 <div className="graphContainer">
                     <div className="infoDisplay">
-                        <_lineChart />
+                        <_lineChart dataset1={dataset1} dataset2={dataset2}/>
                     </div>
 
                     <div className="auxInfo">
@@ -85,7 +137,7 @@ function Home() {
 
                 <div className="graphContainer">
                     <div className="infoDisplay">
-                        <_lineChart />
+                        <_lineChart/>
                     </div>
 
                     <div className="auxInfo">

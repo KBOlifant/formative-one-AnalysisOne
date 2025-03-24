@@ -16,10 +16,15 @@ ChartJS.register(
     PointElement
 )
 
-const lineChartData = () =>{
+const getGradient = (ctx) => {
+    const gradient = ctx.createLinearGradient(0, 0, 0, 400);
+    gradient.addColorStop(0, "rgba(75,192,192,0.6)");
+    gradient.addColorStop(1, "rgba(75,192,192,0)");
+    return gradient;
+  };
+
+const lineChartData = ({ dataset1, dataset2 }) =>{
     const labels = ['Round 1', 'Round 2', 'Round 3', 'Round 4', 'Round 5', 'Round 6', 'Round 7', 'Round 8', 'Round 9', 'Round 10', 'Round 11', 'Round 12'];
-    const dataset1 = labels.map(() => Math.floor(Math.random() * 100));
-    const dataset2 = labels.map(() => Math.floor(Math.random() * 100));
 
     const data ={
         labels,
@@ -60,18 +65,19 @@ const lineChartData = () =>{
                     },
                     color: "white"
                 }
-            }
+            },
+            fill: "start"
         },
         maintainAspectRatio: false,
         responsive: true,
         scales: {
             y: {
                 title: {
-                    display: true,   // Show the title
-                    text: 'Points',  // Label text
+                    display: true,
+                    text: 'Points',
                     font: {
-                        size: 14,   // Font size for the label
-                        weight: 'bold',  // Make it bold
+                        size: 14,
+                        weight: 'bold', 
                         family: "tomorrow",
                     },
                     color: "white"
