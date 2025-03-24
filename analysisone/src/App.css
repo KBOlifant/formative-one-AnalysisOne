@@ -299,6 +299,17 @@
   padding-top: 20px;
 }
 
+.btn-close{
+  position: absolute;
+  margin-top: 10px;
+  margin-left: 750px;
+  color: white;
+}
+
+.btn{
+  color: white;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;

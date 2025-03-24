@@ -16,17 +16,32 @@ function Home() {
         <section className="compareSection">
             <div className="compareTitle m-auto justify-content-center">
                 <Row className="tomorrow-light">
-                    <Col><h2 id="team-text">Team A</h2></Col>
+                    <Col><h2 id="team-text">MClaren</h2></Col>
                     <Col><h1 id="VS-text">VS</h1></Col>
-                    <Col><h2 id="team-text">Team B</h2></Col>
+                    <Col><h2 id="team-text">Mercedes</h2></Col>
                 </Row>
             </div>
 
             <div className="compareItems">
                 <Row>
-                    <Col><Image className="selectionIMG" src={CompareHolderA}></Image></Col>
-                    <Col><Image className="selectionIMG" src={CompareHolderB}></Image></Col>
+                    <Col>
+                        <div className="btn-close">
+                            <button type="button" class="btn" aria-label="Close"></button> 
+                        </div>
+                        <Image className="selectionIMG" src={CompareHolderA}></Image>
+                    </Col>
+
+                    <Col>
+                        <div className="btn-close">
+                            <button type="button" class="btn" aria-label="Close"></button> 
+                        </div>
+                        <Image className="selectionIMG" src={CompareHolderA}></Image>
+                    </Col>
                 </Row>
+            </div>
+            
+            <div>
+                <h1 id='teamSelectTXT'>Select your teams</h1>
             </div>
 
             <div className="teamScroll tomorrow-extralight">
@@ -38,7 +53,7 @@ function Home() {
             <div className="compareTitleSection">
                 <Row>
                     <Col><h2 id="teamA-Button" className="asys-btn team-btn">Bar Chart</h2></Col>
-                    <Col><h1 id="VS-text2">2024 : Round 2</h1></Col>
+                    <Col><h1 id="VS-text2">2024</h1></Col>
                     <Col><h2 id="teamB-Button" className="asys-btn">Line Chart</h2></Col>
                 </Row>
             </div>   
