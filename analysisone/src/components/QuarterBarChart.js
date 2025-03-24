@@ -8,6 +8,7 @@ import {
   Title,
   Tooltip,
   Legend,
+  scales,
 } from "chart.js";
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
@@ -40,10 +41,28 @@ const BarChart = () => {
   };
 
   const options = {
+    scales: {
+      y: {
+        grid: {
+          color: 'white', 
+        },
+      },
+      x: {
+        grid: {
+          color: 'white',
+        }
+      }
+    },
     responsive: true,
     plugins: {
       legend: {
         position: "top",
+        labels: {
+          color: 'white', // Change legend text color to white
+          font: {
+            size: 16, 
+          },
+        },
       },
       title: {
         display: true,
@@ -51,7 +70,7 @@ const BarChart = () => {
       },
       y: {
         label: "Time in Secconds"
-      }
+      },
     },
   };
 

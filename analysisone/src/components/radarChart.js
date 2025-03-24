@@ -54,8 +54,8 @@ const IAS = () => {
         grid: {
           color: 'white', 
         },
-        suggestedMin: 0, // Minimum value for the radial axis
-        suggestedMax: 100, // Maximum value for the radial axis
+        suggestedMin: 85, // Minimum value for the radial axis
+        suggestedMax: 95, // Maximum value for the radial axis
         pointLabels: {
           color: 'white', // Change label text color
           font: {

@@ -7,6 +7,20 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Timeline from "./components/Timeline";
 import Comparison from "./components/Comparison";
+import axios from 'axios';
+
+const apiURL = 'https://api.jolpi.ca/ergast/f1/2024/results/';
+
+async function fetchData(){
+  try {
+  const response = await axios.get(apiURL);
+  console.log(response.data);
+} catch (error) {
+  console.error("Error fetching dog data:", error);
+}
+}
+
+fetchData()
 
 function App() {
   return (

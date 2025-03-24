@@ -45,11 +45,11 @@ function Home() {
         </div>
 
         <section className="analysisSection">
-            <div className="analysisButtonGroup tomorrow-extralight">
-                <button className="asys-btn asys-btn-dimensions active ">Points</button>
-                <button className="asys-btn asys-btn-dimensions">Average Speed</button>
-                <button className="asys-btn asys-btn-dimensions">Fastest Lap Time</button>
-                <button className="asys-btn asys-btn-dimensions">Position</button>
+            <div className="analysisButtonGroup tomorrow-extralight" >
+                <button className="asys-btn asys-btn-dimensions active" style={{fontSize: '24px'}}>Points</button>
+                <button className="asys-btn asys-btn-dimensions" style={{fontSize: '20px'}}>Average Speed</button>
+                <button className="asys-btn asys-btn-dimensions" style={{fontSize: '20px'}}>Fastest Lap Time</button>
+                <button className="asys-btn asys-btn-dimensions" style={{fontSize: '24px'}}>Position</button>
             </div>
 
             {/* <div className="analysisButtonGroup tomorrow-extralight">
