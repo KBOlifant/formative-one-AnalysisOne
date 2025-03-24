@@ -17,7 +17,7 @@ ChartJS.register(
 )
 
 const lineChartData = () =>{
-    const labels = ['Round 1', 'Round 2', 'Round 3', 'Round 4', 'Round 5', 'Round 6', 'Round 7', 'Round 8'];
+    const labels = ['Round 1', 'Round 2', 'Round 3', 'Round 4', 'Round 5', 'Round 6', 'Round 7', 'Round 8', 'Round 9', 'Round 10', 'Round 11', 'Round 12'];
     const dataset1 = labels.map(() => Math.floor(Math.random() * 100));
     const dataset2 = labels.map(() => Math.floor(Math.random() * 100));
 
@@ -62,6 +62,7 @@ const lineChartData = () =>{
                 }
             }
         },
+        maintainAspectRatio: false,
         responsive: true,
         scales: {
             y: {
@@ -92,7 +93,7 @@ const lineChartData = () =>{
     }
     
     return (
-        <div>
+        <div style={{ height: "400px", width: "100%" }}>
             <Line
             data={data}
             options={option}

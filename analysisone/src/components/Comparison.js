@@ -35,7 +35,7 @@ function Home() {
                         <div className="btn-close">
                             <button type="button" class="btn" aria-label="Close"></button> 
                         </div>
-                        <Image className="selectionIMG" src={CompareHolderA}></Image>
+                        <Image className="selectionIMG" src={CompareHolderB}></Image>
                     </Col>
                 </Row>
             </div>
@@ -73,12 +73,28 @@ function Home() {
             </div> */}
 
             <div className="infoOuter">
-                <div className="infoDisplay">
-                    <_lineChart />
+                <div className="graphContainer">
+                    <div className="infoDisplay">
+                        <_lineChart />
+                    </div>
+
+                    <div className="auxInfo">
+                        <_raderChart />
+                    </div>
+                </div>
+
+                <div className="graphContainer">
+                    <div className="infoDisplay">
+                        <_lineChart />
+                    </div>
+
+                    <div className="auxInfo">
+                        <QBarChart />
+                    </div>
                 </div>
             </div>
         </section>
-
+{/* 
         <section className="analysisSection2">
             <div className="graphContainer">
                 <Row className="auxGraphs">
@@ -95,7 +111,7 @@ function Home() {
                     </Col>
                 </Row>
             </div>
-        </section>
+        </section> */}
     </>
   );
 }

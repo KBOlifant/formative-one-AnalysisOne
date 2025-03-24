@@ -11,20 +11,20 @@ import axios from 'axios';
 
 const apiURL = 'https://api.jolpi.ca/ergast/f1/2024/results/';
 
-async function fetchData(){
-  try {
-  const response = await axios.get(apiURL, {
-    params: {
-      limit: 100
-    }
-  });
-  console.log(response.data);
-} catch (error) {
-  console.error("Error fetching dog data:", error);
-}
-}
+// async function fetchData(){
+//   try {
+//   const response = await axios.get(apiURL, {
+//     params: {
+//       limit: 100
+//     }
+//   });
+//   console.log(response.data);
+//   } catch (error) {
+//     console.error("Error fetching dog data:", error);
+//   }
+// }
 
-fetchData()
+//fetchData()
 
 function App() {
   return (
