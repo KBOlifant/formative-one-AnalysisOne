@@ -1,4 +1,5 @@
 import React from "react";
+import { useState, useEffect } from "react";
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Image from 'react-bootstrap/Image';
@@ -12,75 +13,37 @@ import QBarChart from './QuarterBarChart';
 import axios from 'axios';
 import { data } from "react-router-dom";
 import { BarChart } from "lucide-react";
-
-let sampleSize = 6;
-
-async function getTeamData(team, year, ){
-    const apiURL = 'https://api.jolpi.ca//ergast/f1/'+year+'/constructors/'+team+'/results/';
-
-    let RoundData = []
-
-    async function fetchData () {
-        try{
-            const response = await axios.get(apiURL, {
-                params: {
-                    limit: 100
-                }
-            });
-            console.log(response);
-            return response.data;
-        } catch(error){
-            console.error('Error: ', error);
-        }
-    }
-    
-    async function getRoundData(){
-        let _roundData = [];
-        let currentData = await fetchData();
-        sampleSize = currentData.MRData.RaceTable.Races.length;
-        for (let index = 0; index < sampleSize; index++) {
-            _roundData.push(parseInt(currentData.MRData.RaceTable.Races[index].Results[0].points) + parseInt(currentData.MRData.RaceTable.Races[index].Results[1].points));
-        }
-        //console.log(_roundData);
-        return _roundData;
-    } 
-
-    RoundData = await getRoundData();
-    return RoundData;
-}
-let year = '2024';
-let Team1 = 'mclaren';
-let Team2 = 'mercedes';
-let dataset1 = await getTeamData(Team1, year); 
-let dataset2 = await getTeamData(Team2, year);
-
-async function ReloadData(){
-    if(Team1 != sessionStorage.getItem("LeftHand")){
-        Team1 = sessionStorage.getItem("LeftHand");
-        dataset1 = await getTeamData(Team1, year); 
-    }
-
-    if(Team2 != sessionStorage.getItem("RightHand")){
-        Team2 = sessionStorage.getItem("RightHand");
-        dataset2 = await getTeamData(Team2, year); 
-    }
-
-    setTimeout(() => {
-        ReloadData();
-    }, 1000);
-}
-
-ReloadData();
+import { GetDataTeam1 } from '../Team1Data';
+import { GetDataTeam2 } from '../Team2Data';
 
 function Home() {
+
+    const [Team1Data, setTeamData1] = useState(null);
+    const [Team2Data, setTeamData2] = useState(null);
+
+    useEffect(() => {
+        GetDataTeam1('mclaren', '2024').then(data => setTeamData1(data));
+        GetDataTeam2('ferrari', '2024').then(data => setTeamData2(data));
+      }, []);
+
+      if (!Team1Data) {
+        return <p>Loading...</p>;
+      }
+
+      if (!Team2Data) {
+        return <p>Loading...</p>;
+      }
+
+      console.log(Team1Data);
+
   return(
     <>
         <section className="compareSection">
             <div className="compareTitle m-auto justify-content-center">
                 <Row className="tomorrow-light">
-                    <Col><h2 id="team-text">{Team1}</h2></Col>
+                    <Col><h2 id="team-text">{Team1Data.TeamName}</h2></Col>
                     <Col><h1 id="VS-text">VS</h1></Col>
-                    <Col><h2 id="team-text">{Team2}</h2></Col>
+                    <Col><h2 id="team-text">{Team2Data.TeamName}</h2></Col>
                 </Row>
             </div>
 
@@ -137,7 +100,7 @@ function Home() {
             <div className="infoOuter">
                 <div className="graphContainer">
                     <div className="infoDisplay">
-                        <_lineChart dataset1={dataset1} dataset2={dataset2} dataLength={sampleSize}/>
+                        <_lineChart dataset1={Team1Data.points} dataset2={Team2Data.points} dataLength={Team1Data.sampleSize}/>
                     </div>
 
                     {/* <div className="auxInfo">

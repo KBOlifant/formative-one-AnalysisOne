@@ -234,6 +234,29 @@
   text-align: center;
 }
 
+.TimeLineSection{
+  background-color: #2A1C34;
+}
+
+.timelineTitle{
+  border-bottom: solid 3px;
+  border-color: #86ACA7;
+  text-align: center;
+  padding-top: 40px;
+  width: 80%;
+}
+
+.timelineTitle h1{
+  padding: 20px;
+}
+
+.timeIMG{
+  width: 60%;
+  margin: auto;
+  margin-top: 80px;
+  border-radius: 48px;
+}
+
 #VS-text{
   color: #ED9642;
   font-size: 55px;

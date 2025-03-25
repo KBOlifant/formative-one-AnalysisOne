@@ -14,7 +14,7 @@ function homeSection() {
                 </div>
             </div>
 
-            <div className="DataPreview m-auto border-2 border-white">
+            <div className="DataPreview m-auto">
                 <h4 className="text-white text-center pt-5 tomorrow-light">Data Preview</h4>
                 <div className="pieArea">
                     <Carousel />
