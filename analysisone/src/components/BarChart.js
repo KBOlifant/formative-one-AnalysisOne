@@ -12,10 +12,12 @@ import {
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
-const BarChart = () => {
-  const labels = ["Round 1", "Round 2", "Round 3", "Round 4", "Round 5", "Round 6"];
-  const dataset1 = labels.map(() => Math.floor(Math.random() * 100));
-  const dataset2 = labels.map(() => Math.floor(Math.random() * 100));
+const BarChart = ({ dataset1, dataset2, dataLength }) => {
+  let labels = [];
+
+  for (let index = 0; index < dataLength; index++) {
+    labels.push("Round " + (index + 1));
+  }
 
   const data = {
     labels,
@@ -53,7 +55,7 @@ const BarChart = () => {
     },
   };
 
-  return <Bar data={data} options={options} />;
+  return <Bar data={data} options={options} style={{height: "400px"}} />;
 };
 
 export default BarChart;

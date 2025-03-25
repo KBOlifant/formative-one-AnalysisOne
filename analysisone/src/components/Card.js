@@ -13,28 +13,35 @@ import MClaren from '../assets/TeamsPreview/mclaren.avif';
 import RedBull from '../assets/TeamsPreview/red-bull-racing.avif';
 import Williams from '../assets/TeamsPreview/williams.avif';
 
-function sayCardName(cardName){
-  console.log(cardName);
+function sayCardNameLeft(cardID){
+  console.log(cardID + " left");
+  sessionStorage.setItem("LeftHand", cardID);
+}
+
+function sayCardNameRight(cardID){
+  console.log(cardID + " right");
+  sessionStorage.setItem("RightHand", cardID);
 }
 
 const CardInfo = () => {
   const cardDetails = [
-    {image: Alpine, title: 'Alpine', color: '#0060A8'},
-    {image: Aston, title: 'Aston Martin', color: '#135f13'},
-    {image: Ferrari, title: 'Ferreri', color: '#7c0000'},
-    {image: Haas, title: 'Haas', color: '	#B4B7B4'},
-    {image: KickSauber, title: 'Kick Sauber', color: '#104d2b'},
-    {image: MClaren, title: 'MClaren', color: '#FF9800'},
-    {image: Mercedes, title: 'Mercedes', color: '#00D2BE'},
-    {image: RacingBulls, title: 'Racing Bulls', color: '#a0a0a0'},
-    {image: RedBull, title: 'Red Bull', color: '#1E41FF'},
-    {image: Williams, title: 'Williams', color: '#005F8C'}
+    {image: Alpine, title: 'Alpine', color: '#0060A8', id: 'alpine'},
+    {image: Aston, title: 'Aston Martin', color: '#135f4f', id: 'aston_martin'},
+    {image: Ferrari, title: 'Ferreri', color: '#7c0000', id: 'ferrari'},
+    {image: Haas, title: 'Haas', color: '	#B4B7B4', id: 'haas'},
+    {image: KickSauber, title: 'Kick Sauber', color: '#104d2b', id: 'sauber'},
+    {image: MClaren, title: 'MClaren', color: '#FF9800', id: 'mclaren'},
+    {image: Mercedes, title: 'Mercedes', color: '#00D2BE', id: 'mercedes'},
+    {image: RacingBulls, title: 'Racing Bulls', color: '#a0a0a0', id: 'rb'},
+    {image: RedBull, title: 'Red Bull', color: '#1E41FF', id: 'red_bull'},
+    {image: Williams, title: 'Williams', color: '#005F8C', id: 'williams'}
   ];
 
   const displayCard = (card, index) => {
     return(
-      <Card onClick={() => sayCardName(card.title)} className='homeCards' bg="dark" style={{ width: '18rem', borderRadius: '20px'}} key={index}>
-        <Card.Img variant="top" src={card.image} className='mt-3' style={{borderBottom: "2px solid " + card.color}}/>
+      <Card className='homeCards' bg="dark" style={{ width: '18rem', borderRadius: '20px'}} key={index}>
+        <Card.Img variant="top" onClick={() => sayCardNameLeft(card.id)} src={card.image} className='mt-3' />
+        <Card.Img variant="top" onClick={() => sayCardNameRight(card.id)} src={card.image} className='mt-3' style={{borderBottom: "2px solid " + card.color}}/>
         <Card.Body>
           <h5 className="text-align-center text-warning">{card.title}</h5>
         </Card.Body>
@@ -42,7 +49,7 @@ const CardInfo = () => {
     )
   }
 
-  return <Row className='Cards justify-content-md-center flex-wrap' >{cardDetails.map(displayCard)}</Row>
+  return <Row className='Cards justify-content-md-center flex-wrap p-3' >{cardDetails.map(displayCard)}</Row>
 }
 
 export default CardInfo;

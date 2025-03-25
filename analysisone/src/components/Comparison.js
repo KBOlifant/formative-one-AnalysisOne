@@ -2,65 +2,75 @@ import React from "react";
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Image from 'react-bootstrap/Image';
-import CompareHolderA from '../assets/AdobeStock_586498710.jpeg'
-import CompareHolderB from '../assets/AdobeStock_5864987102.jpeg'
+import CompareHolderA from '../assets/TeamsPreview/alpineSideProfile.jpg'
+import CompareHolderB from '../assets/TeamsPreview/alpineSideProfile.jpg'
 import Cards from './Card';
 import Barchart from './BarChart';
 import _lineChart from './lineChart';
 import _raderChart from './radarChart';
 import QBarChart from './QuarterBarChart';
 import axios from 'axios';
+import { data } from "react-router-dom";
+import { BarChart } from "lucide-react";
 
-const labels = ['Round 1', 'Round 2', 'Round 3', 'Round 4', 'Round 5', 'Round 6', 'Round 7', 'Round 8', 'Round 9', 'Round 10', 'Round 11', 'Round 12'];
+let sampleSize = 6;
 
-async function getTeamData(team){
-    const apiURL = 'https://api.jolpi.ca//ergast/f1/2024/constructors/'+team+'/results/';
+async function getTeamData(team, year, ){
+    const apiURL = 'https://api.jolpi.ca//ergast/f1/'+year+'/constructors/'+team+'/results/';
 
-    axios.get(apiURL, {
-        params: {
-            limit: 100
-            }
-        })
-    
-      .then(response => {
-        // Handle the success response
-        console.log('Response:', response.data);
-      })
-      .catch(error => {
-        // Handle any errors
-        console.error('Error:', error);
-    });
-    
-    const fetchF1Data = async () => {
-        try {
-            const response = await axios.get(apiURL);
+    let RoundData = []
+
+    async function fetchData () {
+        try{
+            const response = await axios.get(apiURL, {
+                params: {
+                    limit: 100
+                }
+            });
+            console.log(response);
             return response.data;
-        } catch (error) {
-            console.error("Error fetching dog data:", error);
+        } catch(error){
+            console.error('Error: ', error);
         }
-    };
+    }
     
-    
-    
-    async function getData(){
-        let Currentdata = await axios.get(apiURL);
-        let RoundData = [];
-        console.log(Currentdata.data.MRData);
-        for (let index = 0; index < labels.length; index++) {
-            console.log(Currentdata.data.MRData);
-            RoundData.push(parseInt(Currentdata.data.MRData.RaceTable.Races[index].Results[0].points) + parseInt(Currentdata.data.MRData.RaceTable.Races[index].Results[1].points));
+    async function getRoundData(){
+        let _roundData = [];
+        let currentData = await fetchData();
+        sampleSize = currentData.MRData.RaceTable.Races.length;
+        for (let index = 0; index < sampleSize; index++) {
+            _roundData.push(parseInt(currentData.MRData.RaceTable.Races[index].Results[0].points) + parseInt(currentData.MRData.RaceTable.Races[index].Results[1].points));
         }
+        //console.log(_roundData);
+        return _roundData;
+    } 
 
-        return RoundData;
+    RoundData = await getRoundData();
+    return RoundData;
+}
+let year = '2024';
+let Team1 = 'mclaren';
+let Team2 = 'mercedes';
+let dataset1 = await getTeamData(Team1, year); 
+let dataset2 = await getTeamData(Team2, year);
+
+async function ReloadData(){
+    if(Team1 != sessionStorage.getItem("LeftHand")){
+        Team1 = sessionStorage.getItem("LeftHand");
+        dataset1 = await getTeamData(Team1, year); 
     }
 
-    return getData();
-}
-//console.log(await getTeamData("ferrari"));
-let dataset1 = await getTeamData("ferrari"); 
-let dataset2 = await getTeamData("mercedes"); 
+    if(Team2 != sessionStorage.getItem("RightHand")){
+        Team2 = sessionStorage.getItem("RightHand");
+        dataset2 = await getTeamData(Team2, year); 
+    }
 
-//getTeamData();
+    setTimeout(() => {
+        ReloadData();
+    }, 1000);
+}
+
+ReloadData();
 
 function Home() {
   return(
@@ -68,9 +78,9 @@ function Home() {
         <section className="compareSection">
             <div className="compareTitle m-auto justify-content-center">
                 <Row className="tomorrow-light">
-                    <Col><h2 id="team-text">MClaren</h2></Col>
+                    <Col><h2 id="team-text">{Team1}</h2></Col>
                     <Col><h1 id="VS-text">VS</h1></Col>
-                    <Col><h2 id="team-text">Mercedes</h2></Col>
+                    <Col><h2 id="team-text">{Team2}</h2></Col>
                 </Row>
             </div>
 
@@ -127,12 +137,12 @@ function Home() {
             <div className="infoOuter">
                 <div className="graphContainer">
                     <div className="infoDisplay">
-                        <_lineChart dataset1={dataset1} dataset2={dataset2}/>
+                        <_lineChart dataset1={dataset1} dataset2={dataset2} dataLength={sampleSize}/>
                     </div>
 
-                    <div className="auxInfo">
+                    {/* <div className="auxInfo">
                         <_raderChart />
-                    </div>
+                    </div> */}
                 </div>
 
                 <div className="graphContainer">

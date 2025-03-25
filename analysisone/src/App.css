@@ -185,7 +185,7 @@
   background-image: url('./assets/GraphBG.png');
   background-size: cover;
   height: fit-content;
-  width: 60%;
+  width: 100%;
   border-radius: 32px;
   border-width: 2px;
   border-color: rgb(199, 199, 199);

@@ -23,8 +23,12 @@ const getGradient = (ctx) => {
     return gradient;
   };
 
-const lineChartData = ({ dataset1, dataset2 }) =>{
-    const labels = ['Round 1', 'Round 2', 'Round 3', 'Round 4', 'Round 5', 'Round 6', 'Round 7', 'Round 8', 'Round 9', 'Round 10', 'Round 11', 'Round 12'];
+const lineChartData = ({ dataset1, dataset2, dataLength }) =>{
+    let labels = [];
+
+    for (let index = 0; index < dataLength; index++) {
+        labels.push("Round " + (index + 1));
+    }
 
     const data ={
         labels,
