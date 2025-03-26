@@ -54,7 +54,7 @@
   padding: 50px;
   border-width: 2px;
   border-color: white;
-  background-color: #2A1C34;
+  background-color: #0000008e;
   border-radius: 48px;
   width: 40%;
 }
@@ -145,10 +145,15 @@
   border-bottom-style: solid;
 }
 
+.driverDetails{
+  color: white;
+}
+
 .graphContainer{
   padding: 80px 100px 0px 100px;
   display: flex;
   gap: 100px;
+  width: 100%;
 }
 
 .headerContainer{
@@ -382,6 +387,12 @@
 .tomorrow-light {
   font-family: "Tomorrow", sans-serif;
   font-weight: 300;
+  font-style: normal;
+}
+
+.tomorrow-regular {
+  font-family: "Tomorrow", sans-serif;
+  font-weight: 500;
   font-style: normal;
 }
 

@@ -23,7 +23,9 @@ function sayCardNameRight(cardID){
   sessionStorage.setItem("RightHand", cardID);
 }
 
-const CardInfo = () => {
+
+
+const CardInfo = ({ setTeamA, setTeamB }) => {
   const cardDetails = [
     {image: Alpine, title: 'Alpine', color: '#0060A8', id: 'alpine'},
     {image: Aston, title: 'Aston Martin', color: '#135f4f', id: 'aston_martin'},
@@ -37,11 +39,11 @@ const CardInfo = () => {
     {image: Williams, title: 'Williams', color: '#005F8C', id: 'williams'}
   ];
 
-  const displayCard = (card, index) => {
+  function displayCard(card, index) {
     return(
       <Card className='homeCards' bg="dark" style={{ width: '18rem', borderRadius: '20px'}} key={index}>
-        <Card.Img variant="top" onClick={() => sayCardNameLeft(card.id)} src={card.image} className='mt-3' />
-        <Card.Img variant="top" onClick={() => sayCardNameRight(card.id)} src={card.image} className='mt-3' style={{borderBottom: "2px solid " + card.color}}/>
+        <Card.Img variant="top" onClick={() => setTeamA(card.id)} src={card.image} className='mt-3' />
+        <Card.Img variant="top" onClick={() => setTeamB(card.id)} src={card.image} className='mt-3' style={{borderBottom: "2px solid " + card.color, transform: "scaleX(-1)"}}/>
         <Card.Body>
           <h5 className="text-align-center text-warning">{card.title}</h5>
         </Card.Body>

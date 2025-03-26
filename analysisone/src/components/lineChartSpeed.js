@@ -45,7 +45,7 @@ const lineChartData = ({ dataset1, dataset2 }) =>{
         labels,
         datasets: [{
             label: dataset1.TeamName,
-            data: dataset1.points,
+            data: dataset1.fastestLapAverageSpeed,
             backgroundColor: dataset1.color + "55",
             borderColor: dataset1.color,
             pointBorderColor: dataset1.color,
@@ -58,7 +58,7 @@ const lineChartData = ({ dataset1, dataset2 }) =>{
 
             {
             label: dataset2.TeamName,
-            data: dataset2.points,
+            data: dataset2.fastestLapAverageSpeed,
             backgroundColor: dataset2.color + "55",
             borderColor: dataset2.color,
             pointBorderColor: dataset2.color,
@@ -89,7 +89,7 @@ const lineChartData = ({ dataset1, dataset2 }) =>{
             y: {
                 title: {
                     display: true,
-                    text: 'Points',
+                    text: 'Speed in KPH',
                     font: {
                         size: 14,
                         weight: 'bold', 
@@ -117,7 +117,7 @@ const lineChartData = ({ dataset1, dataset2 }) =>{
                     },
                     color: "white",
                     display: true,
-                    text: 'Points  Awarded  Per  Round',
+                    text: 'Average  Speed  Achieved  In  Fastest  Lap',
                 }
             }
         }

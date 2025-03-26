@@ -53,8 +53,8 @@ const BarChart = () => {
         }
       }
     },
-    responsive: true,
     maintainAspectRatio: false,
+    responsive: true,
     plugins: {
       legend: {
         position: "top",
@@ -75,7 +75,7 @@ const BarChart = () => {
     },
   };
 
-  return <Bar data={data} options={options} />;
+  return <div style={{height: '400px', width: '100%'}}><Bar data={data} options={options} /></div>;
 };
 
 export default BarChart;
