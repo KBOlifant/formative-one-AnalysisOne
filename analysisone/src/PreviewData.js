@@ -1,14 +1,4 @@
 import axios from 'axios';
-import alpineIMG from './assets/TeamsCar/alpineSideProfile.jpg';
-import astonIMG from './assets/TeamsCar/astonSideProfile.jpg';
-import ferreriIMG from './assets/TeamsCar/ferrariSideProfile.jpg';
-import haasIMG from './assets/TeamsCar/haasSideProfile.jpg';
-import mclarenIMG from './assets/TeamsCar/mclarenSideProfile.jpg';
-import mercedesIMG from './assets/TeamsCar/mercedesSideProfile.jpg';
-import racing_bIMG from './assets/TeamsCar/racingBullsSideProfile.jpg';
-import red_bIMG from './assets/TeamsCar/redbullSideProfile.jpg';
-import sauberIMG from './assets/TeamsCar/sauberSideProfile.jpg';
-import williamsIMG from './assets/TeamsCar/williamsSideProfile.jpg';
 
 export const GetAllTeamsData = async (raceYear) => {
 
