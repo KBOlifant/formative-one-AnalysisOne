@@ -1,4 +1,4 @@
-![Datamon Header Image](https://github.com/KBOlifant/formative-one-AnalysisOne/blob/main/analysisone/src/assets/GithubShowcase/AnalysisOneLogo.jpg)
+![AnalysisOne Logo](https://github.com/KBOlifant/formative-one-AnalysisOne/blob/main/analysisone/src/assets/GithubShowcase/AnalysisOneLogo.jpg)
 
 - - - -
 
@@ -15,7 +15,7 @@ the cards visiable at once to select and retrieve relevant information.
 [ChartJS](https://www.chartjs.org/)
 [Bootstrap](https://getbootstrap.com/)
 
-![AnalysisOne Screenshot]()
+![AnalysisOne Screenshot](https://github.com/KBOlifant/formative-one-AnalysisOne/blob/main/analysisone/src/assets/GithubShowcase/MainShowcase.png)
 
 ## Installation Instructions
 
@@ -52,19 +52,32 @@ The whole idea of this web app is to compare 2 F1 teams and compare their metric
 
 ![Wireframe](https://github.com/KBOlifant/formative-one-AnalysisOne/blob/main/analysisone/src/assets/GithubShowcase/Frame%20427318911.png)
 
-## Development Process
+## Design and Deployment Process
 
-### Highlights
-Highlights of my page are definitely my search bar and my evolution chain, I think these added features really gives a nice user experience and a nice flow to the website
+### Wireframing
 
-### Challenges
-This was my first react project and I made some beginner mistakes by having each component making it's own api calls to [PokeAPI](https://pokeapi.co/) and some of the other components were dependant on the information from other components. I Had to rewrite almost all of my code to have all the api calls in one file that passes the data into an array, which made it a lot easier to get the data I needed, this allowed me to just import the data file into each component and use only what I needed. None of the components were dependant on each other.
+Wireframing was done in figma, it was done with the idea of being able to intuitively select a team and get the API to return data based on a selected team.
+The Home page was kept simple throughout the design process, however significant changes were made to the comparison and timeline pages without fundementally changing
+the intended purpose of the web application's design.
 
-Another main challenge I had was with regards to the search bar and the evolution chain. Some pokemon names had '-' high-fins in their names and I made a function that splits then name and only used the first part of the name. Later on in my build, this made issues where my search bar was dependent on having the full name to access the correct api link and this was essential for my evolution chain as well as loading the data for the Pokemon that the user searches for. To fix this issue, I rewrote all my code for my search bar and started by pushing the full name with the high-fins to my array and then a modified version of the names that had only the name.
+### Home Page
+
+The Home Page was to be kept mostly the same as the wireframes. I decided to be fancy and play around with the carousel componenet by adding in charts into it, which i thought was
+a kind of creative endeavour.
+
+### Comparison Page
+
+The Comparison Page was the hardest to make. From fetching data from the API and error prevention, a lot of measures were taken to prevent errors from occuring because the API
+does not provide all the valid Data. Making the cards was the easiest above all things, but this is also where all hell about the API broke loose.
+
+### Timeline Page
+
+After tinkering and messing about with the home and comparison pages, I quickly started to understand the convenience of reusable componenets as i used just that in my timeline page.
+Small changes in styling were implemented, and the graph had to be adjusted to fit the page, but other than that, this page was quickly developed.
 
 ## Mockups
 
 ![Javascript](https://github.com/KBOlifant/formative-one-AnalysisOne/blob/main/analysisone/src/assets/GithubShowcase/Frame%20427318912%20(1).png)
 
 ## Demonstration
-[Link To Demonstration Video](https://drive.google.com/file/d/1I742FZpZOqmFGzcIrO6VR4KwbS5fdRv7/view?usp=sharing)
+[AnalysisOne Video](https://drive.google.com/file/d/11M5jPvihV-ikSvEJY_9CzL6Ov4i6i265/view?usp=drive_link)
