@@ -1,4 +1,4 @@
-![Datamon Header Image](https://github.com/JugheadStudio/Github-assets/blob/main/Datamon/Github-header-blue.png)
+![Datamon Header Image](https://github.com/KBOlifant/formative-one-AnalysisOne/blob/main/analysisone/src/assets/GithubShowcase/AnalysisOneLogo.jpg)
 
 - - - -
 
@@ -15,7 +15,7 @@ the cards visiable at once to select and retrieve relevant information.
 [ChartJS](https://www.chartjs.org/)
 [Bootstrap](https://getbootstrap.com/)
 
-![Datamon Screenshot](https://github.com/JugheadStudio/Github-assets/blob/main/Datamon/datamon-screenshot.png)
+![AnalysisOne Screenshot]()
 
 ## Installation Instructions
 
@@ -50,7 +50,7 @@ The whole idea of this web app is to compare 2 F1 teams and compare their metric
 
 ## Wireframes
 
-![Wireframe](https://github.com/JugheadStudio/Github-assets/blob/main/Datamon/wireframes.png)
+![Wireframe](https://github.com/KBOlifant/formative-one-AnalysisOne/blob/main/analysisone/src/assets/GithubShowcase/Frame%20427318911.png)
 
 ## Development Process
 
@@ -64,7 +64,7 @@ Another main challenge I had was with regards to the search bar and the evolutio
 
 ## Mockups
 
-![Javascript](https://github.com/JugheadStudio/Github-assets/blob/main/Datamon/devices.png)
+![Javascript](https://github.com/KBOlifant/formative-one-AnalysisOne/blob/main/analysisone/src/assets/GithubShowcase/Frame%20427318912%20(1).png)
 
 ## Demonstration
 [Link To Demonstration Video](https://drive.google.com/file/d/1I742FZpZOqmFGzcIrO6VR4KwbS5fdRv7/view?usp=sharing)
