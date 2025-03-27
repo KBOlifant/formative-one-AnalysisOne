@@ -9,11 +9,11 @@ analyse the team points, average speed, and position standing over the last 10 y
 the cards visiable at once to select and retrieve relevant information.
 
 ### Built With
-[![Javascript](https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E)](https://www.javascript.com/)
-[![NodeJS](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)](https://nodejs.org/en)
-[![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://react.dev/)
-[![ChartJS](https://img.shields.io/badge/Chart.js-FF6384?style=for-the-badge&logo=chartdotjs&logoColor=white)](https://www.chartjs.org/)
-[![Bootstrap](https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white)](https://getbootstrap.com/)
+[![Javascript]](https://www.javascript.com/)
+[![NodeJS]](https://nodejs.org/en)
+[![React]](https://react.dev/)
+[![ChartJS]](https://www.chartjs.org/)
+[![Bootstrap]](https://getbootstrap.com/)
 
 ![Datamon Screenshot](https://github.com/JugheadStudio/Github-assets/blob/main/Datamon/datamon-screenshot.png)
 
@@ -68,6 +68,3 @@ Another main challenge I had was with regards to the search bar and the evolutio
 
 ## Demonstration
 [Link To Demonstration Video](https://drive.google.com/file/d/1I742FZpZOqmFGzcIrO6VR4KwbS5fdRv7/view?usp=sharing)
-
-### License
-[MIT](LICENSE) © [Jughead Studio](https://github.com/JugheadStudio)
