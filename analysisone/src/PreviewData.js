@@ -65,8 +65,7 @@ export const GetAllTeamsData = async (raceYear) => {
     let TeamWins = TeamData.StandingsTable.StandingsLists[0].ConstructorStandings.map(currentTeam => 
       currentTeam?.wins !== undefined ? currentTeam.wins : 0
     );
-    
-    // Get all the data we need from the pokemon data and store it in a new object that can be imported into all the pages that need it
+
     const data = {
       AllTeamPoints: TotalPoints,
       AllTeamNames: TeamNames,

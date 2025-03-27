@@ -25,7 +25,7 @@ function sayCardNameRight(cardID){
 
 
 
-const CardInfo = ({ setTeamA, setTeamB }) => {
+const CardInfo = ({ setTeamA }) => {
   const cardDetails = [
     {image: Alpine, title: 'Alpine', color: '#0060A8', id: 'alpine'},
     {image: Aston, title: 'Aston Martin', color: '#135f4f', id: 'aston_martin'},

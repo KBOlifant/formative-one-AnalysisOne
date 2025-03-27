@@ -76,6 +76,7 @@ const lineChartData = ({ dataset1, dataset2 }) =>{
             legend: {
                 labels: {
                     font: {
+                        size: 16,
                         family: "Tomorrow",
                     },
                     color: "white"

@@ -29,16 +29,19 @@ const lineChartData = ({ dataset1 }) =>{
     if(!dataset1){
         return <p className='text-white'>loading...</p>
     }
+
+    const last10Years = Array.from({ length: 11 }, (_, i) => 2024 - i);
     
-    for (let index = 0; index < dataset1.sampleSize; index++) {
-        labels.push("Round " + (index + 1));
+    for (let index = 2015; index < 2025; index++) {
+        labels.push(index);
     }
+
 
     const data ={
         labels,
         datasets: [{
             label: dataset1.TeamName,
-            data: dataset1.points,
+            data: dataset1.last10Years,
             backgroundColor: dataset1.color + "55",
             borderColor: dataset1.color,
             pointBorderColor: dataset1.color,
@@ -69,7 +72,7 @@ const lineChartData = ({ dataset1 }) =>{
             y: {
                 title: {
                     display: true,
-                    text: 'Points',
+                    text: 'Position',
                     font: {
                         size: 14,
                         weight: 'bold', 
@@ -97,7 +100,7 @@ const lineChartData = ({ dataset1 }) =>{
                     },
                     color: "white",
                     display: true,
-                    text: 'Points  Awarded  Per  Round',
+                    text: 'Position over the last 10 years',
                 }
             }
         }

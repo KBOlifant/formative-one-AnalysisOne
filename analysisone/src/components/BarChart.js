@@ -13,14 +13,14 @@ import { data } from "react-router-dom";
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
-const BarChart = ({ dataset }) => {
+const BarChart = ({ dataset1, dataset2 }) => {
   let labels = [];
 
-  if(!dataset){
+  if(!dataset1){
     return <p>loading..</p>
   }
 
-  for (let index = 0; index < dataset.DriverData.Driver1.length; index++) {
+  for (let index = 0; index < dataset1.sampleSize; index++) {
     labels.push("Round " + (index + 1));
   }
 
@@ -28,18 +28,18 @@ const BarChart = ({ dataset }) => {
     labels,
     datasets: [
       {
-        label: "Driver1: " + dataset.DriverData.Driver1Name,
-        data: dataset.DriverData.Driver1,
-        backgroundColor: "#A10702EE",
-        borderColor: 'red',
+        label: dataset1.TeamName,
+        data: dataset1.points,
+        backgroundColor: dataset1.color + "55",
+        borderColor: dataset1.color,
         borderRadius: "3",
         borderWidth: "2",
       },
       {
-        label: "Driver2: " + dataset.DriverData.Driver2Name,
-        data: dataset.DriverData.Driver2,
-        backgroundColor: "#DC6D04AA",
-        borderColor: 'orange',
+        label: dataset2.TeamName,
+        data: dataset2.points,
+        backgroundColor: dataset2.color + "55",
+        borderColor: dataset2.color,
         borderRadius: "3",
         borderWidth: "2",
       },
@@ -93,6 +93,7 @@ const BarChart = ({ dataset }) => {
                 },
                 color: "white",
                 display: true,
+                text: 'Points  Awarded  Per  Round',
             },
             grid: {
                 display: false // Optional: Hide grid lines for better readability

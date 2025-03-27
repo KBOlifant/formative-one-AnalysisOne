@@ -13,11 +13,12 @@ import _raderChart from './radarChart';
 import QBarChart from './QuarterBarChart';
 import axios from 'axios';
 import { data } from "react-router-dom";
-import { BarChart } from "lucide-react";
+import { BarChart, LineChart } from "lucide-react";
 import { GetDataTeam1 } from '../Team1Data';
 import { GetDataTeam2 } from '../Team2Data';
 import DriverDetails from './DriverDetail';
 import DateInputField from './YearInput';
+import InfoAccordian from './Accordian';
 
 function Home() {
 
@@ -38,11 +39,12 @@ function Home() {
     const [isHovered2, setIsHovered2] = useState(false);
     const [newTeamData1, setNewTeamA] = useState('ferrari');
     const [newTeamData2, setNewTeamB] = useState('mercedes');
+    const [isToggled, setIsToggled] = useState(false);
 
     useEffect(() => {
         GetDataTeam1(newTeamData1, currentYear).then(data => setTeamData1(data));
         GetDataTeam2(newTeamData2, currentYear).then(data2 => setTeamData2(data2));
-      }, [newTeamData1, newTeamData2, currentYear]);
+      }, [newTeamData1, newTeamData2, currentYear, isToggled]);
 
     if (!Team1Data) {
     return <p>Loading...</p>;
@@ -50,6 +52,22 @@ function Home() {
 
     if (!Team2Data) {
     return <p>Loading...</p>;
+    }
+
+    function loadRelevantGraph(Team1, Team2){
+        if(isToggled){
+            return <_lineChart dataset1={Team1} dataset2={Team2} />
+        }else{
+            return <Barchart dataset1={Team1} dataset2={Team2} />
+        }
+    }
+
+    function loadLineChart(){
+        setIsToggled(true);
+    }
+
+    function loadBarChart(){
+        setIsToggled(false);
     }
 
     console.log(Team1Data);
@@ -68,8 +86,16 @@ function Home() {
         width: '100%',
     };
 
+    let accordianTitle = "Compare Info";
+    let accordianInfo = `Want to see how your favorite F1 teams stack up against each other? Our comparison tool lets 
+    you analyze two teams based on their performance in the current season. You can compare key stats such as total points, 
+    podium finishes, fastest laps, and average speed to see which team is performing better. Simply select two teams from the cards below in the cards section, and you'll get an
+    instant side-by-side breakdown of their results. Whether you're tracking your favorite team’s progress or just
+    curious about the competition, our tool gives you all the insights you need. Start comparing now and see who’s leading the 2024 F1 season!`;
+
   return(
     <>
+        <InfoAccordian Heading={accordianTitle} Info={accordianInfo} />
         <section className="compareSection">
             <div className="compareTitle m-auto justify-content-center">
                 <Row className="tomorrow-light">
@@ -87,6 +113,7 @@ function Home() {
                         </div>
                         <Image className="selectionIMG" src={Team1Data.image} style={selectionImgStyle1} onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}></Image>
                         <DriverDetails data={Team1Data}/>
+                        {/* <div className="m-auto mt-4 dotIndicator"></div> */}
                     </Col>
 
                     <Col>
@@ -112,9 +139,9 @@ function Home() {
             <div className="compareTitleSection">
                 <h2 className="text-danger m-auto mb-3" style={{letterSpacing: '15px', borderBottom: '2px solid', width: '300px'}}>Race Year</h2>
                 <Row>
-                    <Col><h2 id="teamA-Button" className="asys-btn team-btn">Bar Chart</h2></Col>
+                    <Col><button onClick={loadBarChart}><h2 id="teamA-Button" className="asys-btn team-btn">Bar Chart</h2></button></Col>
                     <DateInputField min={2000} max={2025} onValueChange={setDate}/>
-                    <Col><h2 id="teamB-Button" className="asys-btn">Line Chart</h2></Col>
+                    <Col><button onClick={loadLineChart}><h2 id="teamB-Button" className="asys-btn">Line Chart</h2></button></Col>
                 </Row>
             </div>   
         </div>
@@ -136,7 +163,7 @@ function Home() {
             <div className="infoOuter">
                 <div className="graphContainer">
                     <div className="infoDisplay">
-                        <_lineChart dataset1={Team1Data} dataset2={Team2Data}/>
+                        {loadRelevantGraph(Team1Data, Team2Data)}
                     </div>
 
                     {/* <div className="auxInfo">
@@ -150,7 +177,7 @@ function Home() {
                     </div>
 
                     <div className="auxInfo">
-                        <QBarChart />
+                        <QBarChart apiData1={Team1Data} apiData2={Team2Data} />
                     </div>
                 </div>
             </div>

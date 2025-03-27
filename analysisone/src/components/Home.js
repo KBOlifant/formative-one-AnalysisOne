@@ -1,17 +1,12 @@
 import React from "react";
-import { useState, useEffect } from "react";
+
 import Container from "react-bootstrap/esm/Container";
 import ScrollSection from './ComponentTesting';
 import Carousel from './Carousel';
-import { GetAllTeamsData } from '../PreviewData';
+
 
 function HomeSection() {
 
-    const [Team2Data, setTeamData1] = useState(null);
-
-    useEffect(() => {
-        GetAllTeamsData('2024').then(data => setTeamData1(data));
-      }, []);
 
     return(
         <section className="homeSection">

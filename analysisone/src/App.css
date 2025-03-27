@@ -42,7 +42,6 @@
 .analysisSection{
   background: url('./assets/GraphBG.jpeg') center no-repeat;
   background-size: cover;
-  padding-bottom: 200px;
 }
 
 .analysisSection2{
@@ -137,7 +136,7 @@
 .compareTitleSection{
   width: 70%;
   margin: auto;
-  border-color: red;
+  border-color: #86ACA7;
   border-width: 2px;
   border-top-style: none;
   border-left-style: none;
@@ -147,6 +146,15 @@
 
 .driverDetails{
   color: white;
+}
+
+.dotIndicator{
+  background-color: #FF000055;
+  width: 30px;
+  height: 30px;
+  border-radius: 30px;
+  border-width: 2px;
+  border-color: red;
 }
 
 .graphContainer{
@@ -196,6 +204,15 @@
   border-color: rgb(199, 199, 199);
   box-shadow: 20px 20px 5px rgba(0, 0, 0, 0.329);
   padding: 50px;
+}
+
+.infoOuter{
+  padding-bottom: 80px;
+}
+
+.InfoAccordian{
+  background-color: #2A1C34;
+  padding-top: 50px;
 }
 
 .outerNav{
@@ -262,6 +279,16 @@
   border-radius: 48px;
 }
 
+#AccordianButton{
+  width: 70%;
+  margin: auto;
+}
+
+#AccordianButton button{
+  border-radius: 24px;
+  background-color: #7e080e;
+}
+
 #VS-text{
   color: #ED9642;
   font-size: 55px;
@@ -301,7 +328,7 @@
 }
 
 #navLogo{
-  width: 120px;
+  height: 100px;
   position: absolute;
   border-radius: 20px;
   left: 3%;
@@ -389,6 +416,12 @@
 .tomorrow-light {
   font-family: "Tomorrow", sans-serif;
   font-weight: 300;
+  font-style: normal;
+}
+
+.tomorrow-mid-regular {
+  font-family: "Tomorrow", sans-serif;
+  font-weight: 600;
   font-style: normal;
 }
 

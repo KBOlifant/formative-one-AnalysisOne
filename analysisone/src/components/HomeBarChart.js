@@ -8,34 +8,40 @@ import {
   Title,
   Tooltip,
   Legend,
-  scales,
 } from "chart.js";
+import { data } from "react-router-dom";
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
-const BarChart = ({ apiData1, apiData2 }) => {
-  const labels = ["Q1", "Q2", "Q3"];
-  const dataset1 = labels.map(() => Math.floor(Math.random() * 100));
-  const dataset2 = labels.map(() => Math.floor(Math.random() * 100));
+const BarChart = ({ dataset }) => {
+  let labels = [];
+
+  if(!dataset){
+    return <p>loading..</p>
+  }
+
+  for (let index = 0; index < dataset.DriverData.Driver1.length; index++) {
+    labels.push("Round " + (index + 1));
+  }
 
   const data = {
     labels,
     datasets: [
       {
-        label: apiData1.TeamName,
-        data: dataset1,
-        backgroundColor: apiData1.color + "77",
-        borderColor: apiData1.color,
-        borderRadius: "24",
-        borderWidth: "4",
+        label: "Driver1: " + dataset.DriverData.Driver1Name,
+        data: dataset.DriverData.Driver1,
+        backgroundColor: "#A10702EE",
+        borderColor: 'red',
+        borderRadius: "3",
+        borderWidth: "2",
       },
       {
-        label: apiData2.TeamName,
-        data: dataset2,
-        backgroundColor: apiData2.color + "77",
-        borderColor: apiData2.color,
-        borderRadius: "24",
-        borderWidth: "4",
+        label: "Driver2: " + dataset.DriverData.Driver2Name,
+        data: dataset.DriverData.Driver2,
+        backgroundColor: "#DC6D04AA",
+        borderColor: 'orange',
+        borderRadius: "3",
+        borderWidth: "2",
       },
     ],
   };
@@ -45,6 +51,7 @@ const BarChart = ({ apiData1, apiData2 }) => {
         legend: {
             labels: {
                 font: {
+                    size: 16,
                     family: "Tomorrow",
                 },
                 color: "white"
@@ -62,7 +69,7 @@ const BarChart = ({ apiData1, apiData2 }) => {
                 font: {
                     size: 14,
                     weight: 'bold', 
-                    family: "tomorrow",
+                    family: "Tomorrow",
                 },
                 color: "white"
             },
@@ -71,28 +78,31 @@ const BarChart = ({ apiData1, apiData2 }) => {
             },
             beginAtZero: true
         },
-        x :{
+        x: {
             ticks: {
-                font:{
-                    family: "tomorrow"
+                font: {
+                    family: "Tomorrow"
                 },
                 color: "white"
             },
-            title:{
+            title: {
                 font: {
                     size: 26,
                     weight: 'bold', 
-                    family: "tomorrow",
+                    family: "Tomorrow",
                 },
                 color: "white",
                 display: true,
-                text: 'Sprint Points',
+            },
+            grid: {
+                display: false // Optional: Hide grid lines for better readability
             }
         }
-    }
-}
+    },
+};
 
-  return <div style={{height: '400px', width: '100%'}}><Bar data={data} options={options} /></div>;
+
+  return <Bar data={data} options={options} style={{height: "400px"}} />;
 };
 
 export default BarChart;

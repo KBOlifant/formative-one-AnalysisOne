@@ -64,8 +64,37 @@ export const GetDataTeam1 = async (teamName, raceYear) => {
       race.Results?.[1]?.FastestLap?.AverageSpeed?.speed !== undefined ? parseFloat(race.Results[1].FastestLap.AverageSpeed.speed) : 0
     );
 
-    // Get all the data we need from the pokemon data and store it in a new object that can be imported into all the pages that need it
+    const fetchLast10YearsData = async () => {
+      const currentYear = 2015; // Get current year (e.g., 2024)
+      const years = Array.from({ length: 10 }, (_, i) => currentYear + i); // Generate last 10 years
+  
+      // Create an array of promises for each year's API call
+      const apiCalls = years.map(year => 
+          axios.get(`https://api.jolpi.ca/ergast/f1/${year}/constructors/${teamName}/constructorstandings/`)
+              .then(response => ({
+                  year,
+                  data: response.data.MRData.StandingsTable // Extract relevant data
+              }))
+              .catch(error => ({
+                  year,
+                  error: error.message // Handle errors per year
+              }))
+      );
+
+      const results = await Promise.all(apiCalls);
+      console.log(results); // Log the fetched data
+      return results;
+  };
+
+  const last10YearsData = await fetchLast10YearsData();
+
+  let Position10Years = last10YearsData.map(position => {
+    return position?.data?.StandingsLists?.[0]?.ConstructorStandings?.[0]?.position ? Number(position.data.StandingsLists[0].ConstructorStandings[0].position) : 0;
+  });
+
+    //storing the useful data into a variable
     const data = {
+      last10Years: Position10Years,
       image: teamImage,
       fastD1speed: fastestLapSpeedD2,
       color: teamColor,
@@ -94,6 +123,8 @@ export const GetDataTeam1 = async (teamName, raceYear) => {
       points: pointsD1.map((value, index) => value + pointsD2[index]),
       sampleSize: team.Races?.length || 0,  // Safely access the length
     };
+
+    console.log(data);
     
     return data;
   } catch (error) {

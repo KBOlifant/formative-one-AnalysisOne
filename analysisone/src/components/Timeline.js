@@ -1,7 +1,7 @@
 import React from "react";
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import CompareHolderA from '../assets/TeamsCar/alpineSideProfile.jpg'
+import InfoAccordian from './Accordian';
 import Image from 'react-bootstrap/Image';
 import Cards from './TimeLineCards';
 import { GetDataTeam1 } from '../Team1Data';
@@ -26,8 +26,18 @@ function Home() {
       return <p>Loading...</p>;
     }
 
+    let accordianTitle = "Timeline Info";
+    let accordianInfo = `Curious about how your favorite F1 team has performed over the past decade?
+    Our timeline page allows you to explore a team’s position in the standings over the last 10 years.
+    With an easy-to-read visual representation, you can track their progress, see their best and
+    worst seasons, and analyze trends in performance. Simply select a team, and the timeline will 
+    display their finishing positions, total points, and key achievements year by year. Whether 
+    you’re a longtime fan or just getting into the sport, this feature provides a deep dive into
+    the team’s journey through Formula 1 history!`;
+
   return(
     <>
+      <InfoAccordian Heading={accordianTitle} Info={accordianInfo} />
       <section className="TimeLineSection">
         <div className="timelineTitle m-auto justify-content-center">
             <Row className="tomorrow-light">
@@ -35,25 +45,16 @@ function Home() {
             </Row>
         </div>
 
-        <Image className="timeIMG" src={Team1Data.image}></Image>
+        <Image className="timeIMG" src={Team1Data.image} style={{ boxShadow: '5px 5px 10px ' + Team1Data.color, border: '3px solid ' + Team1Data.color}}></Image>
 
-        <h1 className="m-auto text-align-center pt-4" style={{color: Team1Data.color}}>{Team1Data.TeamName}</h1>
+        <h1 className="m-auto text-align-center pt-4 pb-3" style={{color: Team1Data.color, borderBottom: '2px solid', width: '80%'}}>{Team1Data.TeamName}</h1>
 
-        <div className="teamScroll tomorrow-extralight">
-          <Cards setTeamA={pull_TeamA}/>
-        </div>
-
-        <div className="compareTitle m-auto tomorrow-extralight pb-0" id="compareSubSection">
-            <div className="compareTitleSection pb-3">
-                <Row>
-                    <Col><h2 id="teamA-Button" className="asys-btn team-btn">Bar Chart</h2></Col>
-                    <Col><h2 id="teamB-Button" className="asys-btn">Line Chart</h2></Col>
-                </Row>
-            </div>   
+        <div className="teamScroll tomorrow-extralight mb-2" >
+          <Cards setTeamA={pull_TeamA} />
         </div>
 
         <div className="infoOuter">
-          <div className="graphContainer">
+          <div className="graphContainer mb-4">
               <div className="infoDisplay">
                   <_lineChart dataset1={Team1Data} />
               </div>

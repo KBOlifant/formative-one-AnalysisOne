@@ -10,10 +10,8 @@ import red_bIMG from './assets/TeamsCar/redbullSideProfile.jpg';
 import sauberIMG from './assets/TeamsCar/sauberSideProfile.jpg';
 import williamsIMG from './assets/TeamsCar/williamsSideProfile.jpg';
 
-// Get the pokemon data from the pokeapi
 export const GetDataTeam2 = async (teamName, raceYear) => {
   try {
-    // Get the pokemon data
     const apiURL = 'https://api.jolpi.ca//ergast/f1/'+raceYear+'/constructors/'+teamName+'/results/';
     const response = await axios.get(apiURL, {
         params: {
@@ -63,7 +61,6 @@ export const GetDataTeam2 = async (teamName, raceYear) => {
         race.Results?.[1]?.FastestLap?.AverageSpeed?.speed !== undefined ? parseFloat(race.Results[1].FastestLap.AverageSpeed.speed) : 0
       );
 
-    // Get all the data we need from the pokemon data and store it in a new object that can be imported into all the pages that need it
     const data2 = {
         image: teamImage,
         color: teamColor,
