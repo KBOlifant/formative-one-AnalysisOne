@@ -10,12 +10,9 @@ import red_bIMG from './assets/TeamsCar/redbullSideProfile.jpg';
 import sauberIMG from './assets/TeamsCar/sauberSideProfile.jpg';
 import williamsIMG from './assets/TeamsCar/williamsSideProfile.jpg';
 
-// Get the pokemon data from the pokeapi
-// Get the pokemon data from the pokeapi
 export const GetDataTeam1 = async (teamName, raceYear) => {
 
   try {
-    // Get the pokemon data
     const apiURL = 'https://api.jolpi.ca//ergast/f1/'+raceYear+'/constructors/'+teamName+'/results/';
     const response = await axios.get(apiURL, {
         params: {

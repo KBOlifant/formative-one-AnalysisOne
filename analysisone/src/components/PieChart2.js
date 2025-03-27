@@ -22,7 +22,7 @@ const PieChart = ( {dataSet} ) => {
     labels: dataSet.AllTeamNames,
     datasets: [
       {
-        data: dataSet.AllTeamPoints,
+        data: dataSet.TeamWins,
         backgroundColor: dataSet.TeamColors,
       },
     ],

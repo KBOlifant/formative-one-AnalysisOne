@@ -17,6 +17,7 @@ import { BarChart } from "lucide-react";
 import { GetDataTeam1 } from '../Team1Data';
 import { GetDataTeam2 } from '../Team2Data';
 import DriverDetails from './DriverDetail';
+import DateInputField from './YearInput';
 
 function Home() {
 
@@ -32,16 +33,16 @@ function Home() {
 
     const [Team1Data, setTeamData1] = useState(null);
     const [Team2Data, setTeamData2] = useState(null);
+    const [currentYear, setDate] = useState(2024);
     const [isHovered, setIsHovered] = useState(false);
     const [isHovered2, setIsHovered2] = useState(false);
     const [newTeamData1, setNewTeamA] = useState('ferrari');
     const [newTeamData2, setNewTeamB] = useState('mercedes');
 
     useEffect(() => {
-        GetDataTeam1(newTeamData1, '2016').then(data => setTeamData1(data));
-        GetDataTeam2(newTeamData2, '2016').then(data2 => setTeamData2(data2));
-        console.log("Change");
-      }, [newTeamData1, newTeamData2]);
+        GetDataTeam1(newTeamData1, currentYear).then(data => setTeamData1(data));
+        GetDataTeam2(newTeamData2, currentYear).then(data2 => setTeamData2(data2));
+      }, [newTeamData1, newTeamData2, currentYear]);
 
     if (!Team1Data) {
     return <p>Loading...</p>;
@@ -109,9 +110,10 @@ function Home() {
 
         <div className="compareTitle m-auto tomorrow-extralight" id="compareSubSection">
             <div className="compareTitleSection">
+                <h2 className="text-danger m-auto mb-3" style={{letterSpacing: '15px', borderBottom: '2px solid', width: '300px'}}>Race Year</h2>
                 <Row>
                     <Col><h2 id="teamA-Button" className="asys-btn team-btn">Bar Chart</h2></Col>
-                    <Col><h1 id="VS-text2">2024</h1></Col>
+                    <DateInputField min={2000} max={2025} onValueChange={setDate}/>
                     <Col><h2 id="teamB-Button" className="asys-btn">Line Chart</h2></Col>
                 </Row>
             </div>   

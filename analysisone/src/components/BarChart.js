@@ -9,13 +9,18 @@ import {
   Tooltip,
   Legend,
 } from "chart.js";
+import { data } from "react-router-dom";
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
-const BarChart = ({ dataset1, dataset2, dataLength }) => {
+const BarChart = ({ dataset }) => {
   let labels = [];
 
-  for (let index = 0; index < dataLength; index++) {
+  if(!dataset){
+    return <p>loading..</p>
+  }
+
+  for (let index = 0; index < dataset.DriverData.Driver1.length; index++) {
     labels.push("Round " + (index + 1));
   }
 
@@ -23,37 +28,79 @@ const BarChart = ({ dataset1, dataset2, dataLength }) => {
     labels,
     datasets: [
       {
-        label: "Team A",
-        data: dataset1,
+        label: "Driver1: " + dataset.DriverData.Driver1Name,
+        data: dataset.DriverData.Driver1,
         backgroundColor: "#A10702EE",
         borderColor: 'red',
-        borderRadius: "24",
-        borderWidth: "4",
+        borderRadius: "3",
+        borderWidth: "2",
       },
       {
-        label: "Team B",
-        data: dataset2,
+        label: "Driver2: " + dataset.DriverData.Driver2Name,
+        data: dataset.DriverData.Driver2,
         backgroundColor: "#DC6D04AA",
         borderColor: 'orange',
-        borderRadius: "24",
-        borderWidth: "4",
+        borderRadius: "3",
+        borderWidth: "2",
       },
     ],
   };
 
   const options = {
-    responsive: true,
-    maintainAspectRatio: false,
     plugins: {
-      legend: {
-        position: "top",
-      },
-      title: {
-        display: true,
-        text: "Comparison of Points between Mclaren and Mercedes",
-      },
+        legend: {
+            labels: {
+                font: {
+                    size: 16,
+                    family: "Tomorrow",
+                },
+                color: "white"
+            }
+        },
+        fill: "start"
     },
-  };
+    maintainAspectRatio: false,
+    responsive: true,
+    scales: {
+        y: {
+            title: {
+                display: true,
+                text: 'Points',
+                font: {
+                    size: 14,
+                    weight: 'bold', 
+                    family: "Tomorrow",
+                },
+                color: "white"
+            },
+            ticks: {
+                color: "white"
+            },
+            beginAtZero: true
+        },
+        x: {
+            ticks: {
+                font: {
+                    family: "Tomorrow"
+                },
+                color: "white"
+            },
+            title: {
+                font: {
+                    size: 26,
+                    weight: 'bold', 
+                    family: "Tomorrow",
+                },
+                color: "white",
+                display: true,
+            },
+            grid: {
+                display: false // Optional: Hide grid lines for better readability
+            }
+        }
+    },
+};
+
 
   return <Bar data={data} options={options} style={{height: "400px"}} />;
 };
