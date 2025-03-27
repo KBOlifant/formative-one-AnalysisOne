@@ -9,11 +9,11 @@ analyse the team points, average speed, and position standing over the last 10 y
 the cards visiable at once to select and retrieve relevant information.
 
 ### Built With
-[![Javascript]](https://www.javascript.com/)
-[![NodeJS]](https://nodejs.org/en)
-[![React]](https://react.dev/)
-[![ChartJS]](https://www.chartjs.org/)
-[![Bootstrap]](https://getbootstrap.com/)
+[Javascript](https://www.javascript.com/)
+[NodeJS](https://nodejs.org/en)
+[React](https://react.dev/)
+[ChartJS](https://www.chartjs.org/)
+[Bootstrap](https://getbootstrap.com/)
 
 ![Datamon Screenshot](https://github.com/JugheadStudio/Github-assets/blob/main/Datamon/datamon-screenshot.png)
 
