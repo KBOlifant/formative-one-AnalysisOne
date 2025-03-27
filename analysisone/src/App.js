@@ -1,12 +1,12 @@
 import logo from './logo.svg';
 import './App.css';
 import Navbar from './components/Navbar';
-import Home from './components/Home'
+import Home from './components/Pages/Home'
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Timeline from "./components/Timeline";
-import Comparison from "./components/Comparison";
+import Timeline from "./components/Pages/Timeline";
+import Comparison from "./components/Pages/Comparison";
 import axios from 'axios';
 
 const apiURL = 'https://api.jolpi.ca/ergast/f1/2024/results/';

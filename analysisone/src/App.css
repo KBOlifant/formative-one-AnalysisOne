@@ -54,6 +54,7 @@
   border-width: 2px;
   border-color: white;
   background-color: #0000008e;
+  box-shadow: 20px 20px 5px rgba(0, 0, 0, 0.329);
   border-radius: 48px;
   width: 40%;
 }
@@ -136,7 +137,7 @@
 .compareTitleSection{
   width: 70%;
   margin: auto;
-  border-color: #86ACA7;
+  border-color: red;
   border-width: 2px;
   border-top-style: none;
   border-left-style: none;
@@ -317,7 +318,7 @@
 #compareSubSection{
   width: 100%;
   border-style: none;
-  padding-bottom: 50px;
+  padding-bottom: 30px;
 }
 
 #innerNav{
@@ -328,7 +329,7 @@
 }
 
 #navLogo{
-  height: 100px;
+  height: 80px;
   position: absolute;
   border-radius: 20px;
   left: 3%;

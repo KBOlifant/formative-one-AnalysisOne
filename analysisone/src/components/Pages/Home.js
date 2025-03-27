@@ -1,8 +1,8 @@
 import React from "react";
 
 import Container from "react-bootstrap/esm/Container";
-import ScrollSection from './ComponentTesting';
-import Carousel from './Carousel';
+import ScrollSection from '../ComponentTesting';
+import Carousel from '../Carousel';
 
 
 function HomeSection() {

@@ -1,11 +1,11 @@
 import React from "react";
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import InfoAccordian from './Accordian';
+import InfoAccordian from '../Accordian';
 import Image from 'react-bootstrap/Image';
-import Cards from './TimeLineCards';
-import { GetDataTeam1 } from '../Team1Data';
-import _lineChart from './TimeLineBarChart';
+import Cards from '../TimeLineCards';
+import { GetDataTeam1 } from '../../Team1Data';
+import _lineChart from '../TimeLineBarChart';
 import { useState, useEffect } from "react";
 
 function Home() {

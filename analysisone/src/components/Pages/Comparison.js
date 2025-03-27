@@ -3,22 +3,20 @@ import { useState, useEffect } from "react";
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Image from 'react-bootstrap/Image';
-import CompareHolderA from '../assets/TeamsPreview/alpineSideProfile.jpg'
-import CompareHolderB from '../assets/TeamsPreview/alpineSideProfile.jpg'
-import Cards from './Card';
-import Barchart from './BarChart';
-import _lineChart from './lineChart';
-import _lineChart2 from './lineChartSpeed';
-import _raderChart from './radarChart';
-import QBarChart from './QuarterBarChart';
+import Cards from '../Card';
+import Barchart from '../BarChart';
+import _lineChart from '../lineChart';
+import _lineChart2 from '../lineChartSpeed';
+import _raderChart from '../radarChart';
+import QBarChart from '../QuarterBarChart';
 import axios from 'axios';
 import { data } from "react-router-dom";
 import { BarChart, LineChart } from "lucide-react";
-import { GetDataTeam1 } from '../Team1Data';
-import { GetDataTeam2 } from '../Team2Data';
-import DriverDetails from './DriverDetail';
-import DateInputField from './YearInput';
-import InfoAccordian from './Accordian';
+import { GetDataTeam1 } from '../../Team1Data';
+import { GetDataTeam2 } from '../../Team2Data';
+import DriverDetails from '../DriverDetail';
+import DateInputField from '../YearInput';
+import InfoAccordian from '../Accordian';
 
 function Home() {
 
@@ -129,15 +127,15 @@ function Home() {
             <div>
                 <h1 id='teamSelectTXT'>Select your teams</h1>
             </div>
-
-            <div className="teamScroll tomorrow-extralight">
+            
+            <div className="teamScroll tomorrow-extralight gradientBorder">
                 <Cards setTeamA={pull_TeamA} setTeamB={pull_TeamB} />
             </div>
         </section>
 
         <div className="compareTitle m-auto tomorrow-extralight" id="compareSubSection">
             <div className="compareTitleSection">
-                <h2 className="text-danger m-auto mb-3" style={{letterSpacing: '15px', borderBottom: '2px solid', width: '300px'}}>Race Year</h2>
+                <h2 className="text-primary m-auto mb-3" style={{letterSpacing: '15px', borderBottom: '2px solid', width: '300px'}}>Race Year</h2>
                 <Row>
                     <Col><button onClick={loadBarChart}><h2 id="teamA-Button" className="asys-btn team-btn">Bar Chart</h2></button></Col>
                     <DateInputField min={2000} max={2025} onValueChange={setDate}/>
