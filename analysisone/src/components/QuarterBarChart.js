@@ -14,9 +14,10 @@ import {
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
 const BarChart = ({ apiData1, apiData2 }) => {
-  const labels = ["Q1", "Q2", "Q3"];
-  const dataset1 = labels.map(() => Math.floor(Math.random() * 100));
-  const dataset2 = labels.map(() => Math.floor(Math.random() * 100));
+  const labels = [apiData1.driver1.driverName, apiData1.driver2.driverName, apiData2.driver1.driverName, apiData2.driver2.driverName];
+  const dataset1 = [2, 5];
+  const dataset2 = [6, 7];
+  console.log(dataset1);
 
   const data = {
     labels,
@@ -86,7 +87,7 @@ const BarChart = ({ apiData1, apiData2 }) => {
                 },
                 color: "white",
                 display: true,
-                text: 'Sprint Points',
+                text: 'Team Standings',
             }
         }
     }
