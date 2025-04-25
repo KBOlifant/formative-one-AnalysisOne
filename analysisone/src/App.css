@@ -88,6 +88,17 @@
   color: #61dafb;
 }
 
+.box{
+  display: flex;
+  background: rgba(0, 0, 0, 0.301);
+  backdrop-filter: blur(16px);
+  border-top: 1px solid rgba(255, 255, 255, 0.548);
+  border-left: 1px solid rgba(255, 255, 255, 0.548);
+  border-radius: 32px;
+  justify-content: center;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.459);
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -149,6 +160,10 @@
   color: white;
 }
 
+.driverNameText{
+  transition: color 5s ease;
+}
+
 .dotIndicator{
   background-color: #FF000055;
   width: 30px;
@@ -163,6 +178,21 @@
   display: flex;
   gap: 100px;
   width: 100%;
+}
+
+.grid-container{
+  display: grid;
+  width: 90%;
+  padding-top: 128px;
+  justify-content: center;
+  margin: auto;
+  grid-auto-columns: 320px;
+  grid-auto-rows: 390px;
+  gap: 32px;
+  grid-template-areas: 
+  "box-1 box-1 box-1 box-1 box-1"
+  "box-2 box-2 box-3 box-3 box-3"
+  "box-5 box-5 box-5 box-4 box-4";
 }
 
 .headerContainer{
@@ -193,6 +223,12 @@
 .homeSection{
   position: relative;
   background: url('./assets/CardsSection2.png') center no-repeat;
+}
+
+.HeroSection{
+  height: 1500px;
+  background: url('./assets/AdobeStock_503463793.jpeg');
+  background-size: cover;
 }
 
 .infoDisplay{
@@ -244,7 +280,7 @@
 
 .teamScroll{
   margin: 60px auto;
-  padding: 80px 0px;
+  padding: 48px 0px;
   width: 90%;
   border-radius: 24px;
   box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.219);
@@ -280,6 +316,10 @@
   border-radius: 48px;
 }
 
+.welcomeText{
+  display: flex;
+}
+
 #AccordianButton{
   width: 70%;
   margin: auto;
@@ -288,6 +328,52 @@
 #AccordianButton button{
   border-radius: 24px;
   background-color: #7e080e;
+}
+
+#bentoGraph{
+  width: 100%;
+  padding: 32px;
+}
+
+#box-1 h1{
+  color: white;
+  margin: auto;
+  width: fit-content;
+  letter-spacing: 8px;
+  font-size: 64px;
+  text-shadow: 4px 4px rgba(0, 0, 0, 0.329);
+}
+
+#box-2{
+  position: relative;
+  background: url('./assets/AdobeStock_586498710.jpeg');
+  background-size: cover;
+  box-shadow: inset 0px 0px 48px 48px black;
+}
+
+#box-2 h1{
+  width: 90%;
+  color: white;
+  font-size: 80px;
+  text-align: center;
+  height: fit-content;
+  justify-self: center;
+  align-self: center;
+  margin: 0;
+  z-index: 1;
+}
+
+#box-2::after{
+  content: '';
+  position: absolute;
+  background: rgba(0, 0, 0, 0.664);
+  inset: 0;
+  border-radius: inherit;
+}
+
+#box-4{
+  background: url('./assets/Compar.jpeg');
+  background-size: cover;
 }
 
 #VS-text{
@@ -324,6 +410,7 @@
 #innerNav{
   width: 60%;
   background-color: #0000002f;
+  box-shadow: inset 0px 0px 10px 2px rgba(0, 0, 0, 0.479), 0px 2px rgba(255, 255, 255, 0.055);
   border-radius: 26px;
   font-size: 20px;
 }
@@ -450,4 +537,70 @@ h1{
 .selectionIMG:hover{
   box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.39);
   transform: scale(1.01);
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 256px;
+  height: 64px;
+}
+
+.switch input { 
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.switchContainer{
+  width: fit-content;
+  margin: auto;
+  padding: 24px;
+}
+
+.Ind-card{
+  transition: transform 0.2s ease;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #4a3875;
+  box-shadow: inset 0px 0px 12px 4px rgba(0, 0, 0, 0.85), inset 0px 0px 2px 1px rgba(0, 0, 0, 0.384);
+  -webkit-transition: .2s;
+  transition: .2s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 52px;
+  width: 52px;
+  left: 6px;
+  bottom: 6px;
+  background-color: hsl(258, 100%, 80%);
+  -webkit-transition: .2s;
+  transition: .2s;
+}
+
+input:checked + .slider {
+  background-color: #6021f3;
+  box-shadow: inset 0px 0px 12px 4px rgba(0, 0, 0, 0.85), inset 0px 0px 2px 1px rgba(0, 0, 0, 0.384);
+}
+
+input:checked + .slider:before {
+  transform: translateX(192px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
 }

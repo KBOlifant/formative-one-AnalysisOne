@@ -12,9 +12,9 @@ function ColorSchemesExample() {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 100) {
+      if (window.scrollY > 150) {
         setIsScrolled(true);
-      } else {
+      } else if(window.scrollY < 100){
         setIsScrolled(false);
       }
     };

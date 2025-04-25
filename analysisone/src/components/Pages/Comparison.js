@@ -27,6 +27,8 @@ function Home() {
         console.log(teamFromCardB + " this is from the prop");
     }
 
+    const [isPrimaryTeam, setTeamOrientation] = useState(true);
+
     const [Team1Data, setTeamData1] = useState(null);
     const [Team2Data, setTeamData2] = useState(null);
     const [currentYear, setDate] = useState(2024);
@@ -68,14 +70,14 @@ function Home() {
     console.log(Team1Data);
 
     const selectionImgStyle1 = {
-        boxShadow: isHovered ? "10px 10px 5px " + Team1Data.color + "88" : "10px 5px 5px rgba(0, 0, 0, 0.219)",
+        boxShadow: isHovered ? "2px 2px 2px " + Team1Data.color : "10px 5px 5px rgba(0, 0, 0, 0.219)",
         transition: "box-shadow 0.3s ease, transform 0.2s ease",
         transform: isHovered ? "scale(1.01)" : "scale(1)",
         width: '100%'
     };
 
     const selectionImgStyle2 = {
-        boxShadow: isHovered2 ? "10px 10px 5px " + Team2Data.color + "88" : "10px 5px 5px rgba(0, 0, 0, 0.219)",
+        boxShadow: isHovered2 ? "2px 2px 2px " + Team2Data.color : "10px 5px 5px rgba(0, 0, 0, 0.219)",
         transition: "box-shadow 0.3s ease, transform 0.2s ease",
         transform: isHovered2 ? "scale(1.01) scaleX(-1)" : "scale(1) scaleX(-1)",
         width: '100%',
@@ -124,9 +126,19 @@ function Home() {
             <div>
                 <h1 id='teamSelectTXT'>Select your teams</h1>
             </div>
+
+            
+            
             
             <div className="teamScroll tomorrow-extralight gradientBorder">
-                <Cards setTeamA={pull_TeamA} setTeamB={pull_TeamB} />
+                <div className="switchContainer">
+                    <label class="switch">
+                        <h1 className="text-white">{isPrimaryTeam}</h1>
+                        <input type="checkbox"></input>
+                        <span class="slider round" onClick={() => setTeamOrientation(!isPrimaryTeam)}></span>
+                    </label>
+                </div>
+                <Cards setTeamA={pull_TeamA} setTeamB={pull_TeamB} isPrimaryTeam={isPrimaryTeam} />
             </div>
         </section>
 

@@ -12,6 +12,7 @@ import KickSauber from '../assets/TeamsPreview/kick-sauber.avif';
 import MClaren from '../assets/TeamsPreview/mclaren.avif';
 import RedBull from '../assets/TeamsPreview/red-bull-racing.avif';
 import Williams from '../assets/TeamsPreview/williams.avif';
+import { useState, useEffect } from 'react';
 
 function sayCardNameLeft(cardID){
   console.log(cardID + " left");
@@ -25,7 +26,7 @@ function sayCardNameRight(cardID){
 
 
 
-const CardInfo = ({ setTeamA, setTeamB }) => {
+const CardInfo = ({ setTeamA, setTeamB, isPrimaryTeam }) => {
   const cardDetails = [
     {image: Alpine, title: 'Alpine', color: '#0060A8', id: 'alpine'},
     {image: Aston, title: 'Aston Martin', color: '#135f4f', id: 'aston_martin'},
@@ -40,15 +41,27 @@ const CardInfo = ({ setTeamA, setTeamB }) => {
   ];
 
   function displayCard(card, index) {
-    return(
-      <Card className='homeCards' bg="dark" style={{ width: '18rem', borderRadius: '20px'}} key={index}>
-        <Card.Img variant="top" onClick={() => setTeamA(card.id)} src={card.image} className='mt-3' />
-        <Card.Img variant="top" onClick={() => setTeamB(card.id)} src={card.image} className='mt-3' style={{borderBottom: "2px solid " + card.color, transform: "scaleX(-1)"}}/>
-        <Card.Body>
-          <h5 className="text-align-center text-warning">{card.title}</h5>
-        </Card.Body>
-      </Card>
-    )
+    if(isPrimaryTeam){
+      return(
+        <Card className='homeCards' bg="dark" style={{ width: '18rem', borderRadius: '20px'}} key={index}>
+          <Card.Img variant="top" onClick={() => setTeamA(card.id)} src={card.image} className='Ind-card mt-3' style={{borderBottom: "2px solid " + card.color}} />
+          <Card.Body>
+            <h5 className="text-align-center text-warning">{card.title}</h5>
+          </Card.Body>
+        </Card>
+      )
+    }else
+    {
+      return(
+        <Card className='homeCards' bg="dark" style={{ width: '18rem', borderRadius: '20px'}} key={index}>
+          <Card.Img variant="top" onClick={() => setTeamB(card.id)} src={card.image} className='Ind-card mt-3' style={{borderBottom: "2px solid " + card.color, transform: "scaleX(-1)"}}/>
+          <Card.Body>
+            <h5 className="text-align-center text-warning">{card.title}</h5>
+          </Card.Body>
+        </Card>
+      )
+    }
+    
   }
 
   return <Row className='Cards justify-content-md-center flex-wrap p-3' >{cardDetails.map(displayCard)}</Row>
