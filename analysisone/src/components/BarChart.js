@@ -103,7 +103,11 @@ const BarChart = ({ dataset1, dataset2 }) => {
 };
 
 
-  return <Bar data={data} options={options} style={{height: "400px"}} />;
+  return (
+    <div>
+      <Bar data={data} options={options} style={{height: "400px"}} />
+    </div>
+  );
 };
 
 export default BarChart;

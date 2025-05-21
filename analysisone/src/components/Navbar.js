@@ -34,7 +34,7 @@ function ColorSchemesExample() {
                 <img src={logo} id='navLogo'></img>
                 <Container id='innerNav' className='p-3'>
                     <Nav className="m-auto gap-5 flex justify-content-center">
-                        <Nav.Link className='px-5 d-flex align-items-center' href="/Home"> <Home size={26} style={{ marginRight: '8px' }} />Home</Nav.Link>
+                        <Nav.Link className='px-5 d-flex align-items-center' href="/"> <Home size={26} style={{ marginRight: '8px' }} />Home</Nav.Link>
                         <Nav.Link className='px-5 d-flex align-items-center' href="/Comparison"> <ChartColumnBig size={26} style={{ marginRight: '8px' }} />Comparison</Nav.Link>
                         <Nav.Link className='px-5 d-flex align-items-center' href="/Timeline"> <Timer size={26} style={{ marginRight: '8px' }} />Timeline</Nav.Link>
                     </Nav>

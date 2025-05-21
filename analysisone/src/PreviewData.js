@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-export const GetAllTeamsData = async (raceYear) => {
+export const GetAllTeamsData = async (raceYear, teamA, teamB) => {
 
   try {
     const apiURL = 'https://api.jolpi.ca/ergast/f1/'+raceYear+'/constructorstandings/';
@@ -11,7 +11,7 @@ export const GetAllTeamsData = async (raceYear) => {
     });
 
     const getDriverPoints = async (teamName) => {
-      const team = await axios.get(`https://api.jolpi.ca//ergast/f1/2024/constructors/${teamName}/results/`, {
+      const team = await axios.get(`https://api.jolpi.ca//ergast/f1/${raceYear}/constructors/${teamName}/results/`, {
         params: {
           limit: 100
         }
@@ -64,9 +64,24 @@ export const GetAllTeamsData = async (raceYear) => {
       
     };
 
-    data.DriverData = await getDriverPoints('mercedes');
+    data.Driver1Data = await getDriverPoints(teamA);
+    data.Driver2Data = await getDriverPoints(teamB);
+    
+  let TeamAPoints = 0;
+  let TeamBPoints = 0;
+  
+  for (let index = 0; index < data.Driver1Data.Driver1.length; index++) {
+    TeamAPoints += data.Driver1Data.Driver1[index];
+    TeamAPoints += data.Driver1Data.Driver2[index];
+  }
 
-    console.log(TeamData);
+  for (let index = 0; index < data.Driver2Data.Driver1.length; index++) {
+    TeamBPoints += data.Driver2Data.Driver1[index];
+    TeamBPoints += data.Driver2Data.Driver2[index];
+  }
+
+    data.TeamAPoints = TeamAPoints;
+    data.TeamBPoints = TeamBPoints;
     
     return data;
   } catch (error) {

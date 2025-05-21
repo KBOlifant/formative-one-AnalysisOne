@@ -33,7 +33,7 @@ function App() {
       <Navbar />
       
       <Routes>
-          <Route path="/Home" element={<Home />} />
+          <Route path="/" element={<Home />} />
           <Route path="/Timeline" element={<Timeline />} />
           <Route path="/Comparison" element={<Comparison />} />
       </Routes>

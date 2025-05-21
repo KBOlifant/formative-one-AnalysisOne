@@ -123,17 +123,14 @@ function Home() {
                 </Row>
             </div>
             
-            <div>
-                <h1 id='teamSelectTXT'>Select your teams</h1>
-            </div>
+            
 
-            
-            
-            
             <div className="teamScroll tomorrow-extralight gradientBorder">
+                <div>
+                    <h1 id='teamSelectTXT'>Select or switch your teams</h1>
+                </div>
                 <div className="switchContainer">
                     <label class="switch">
-                        <h1 className="text-white">{isPrimaryTeam}</h1>
                         <input type="checkbox"></input>
                         <span class="slider round" onClick={() => setTeamOrientation(!isPrimaryTeam)}></span>
                     </label>
@@ -169,7 +166,7 @@ function Home() {
 
             <div className="infoOuter">
                 <div className="graphContainer">
-                    <div className="infoDisplay">
+                    <div className="infoDisplay" >
                         {loadRelevantGraph(Team1Data, Team2Data)}
                     </div>
 

@@ -20,7 +20,7 @@ const BarChart = ({ dataset }) => {
     return <p>loading..</p>
   }
 
-  for (let index = 0; index < dataset.DriverData.Driver1.length; index++) {
+  for (let index = 0; index < dataset.Driver1Data.Driver1.length; index++) {
     labels.push("Round " + (index + 1));
   }
 
@@ -28,16 +28,16 @@ const BarChart = ({ dataset }) => {
     labels,
     datasets: [
       {
-        label: "Driver1: " + dataset.DriverData.Driver1Name,
-        data: dataset.DriverData.Driver1,
+        label: "Driver1: " + dataset.Driver1Data.Driver1Name,
+        data: dataset.Driver1Data.Driver1,
         backgroundColor: "#A10702EE",
         borderColor: 'red',
         borderRadius: "3",
         borderWidth: "2",
       },
       {
-        label: "Driver2: " + dataset.DriverData.Driver2Name,
-        data: dataset.DriverData.Driver2,
+        label: "Driver2: " + dataset.Driver1Data.Driver2Name,
+        data: dataset.Driver2Data.Driver1,
         backgroundColor: "#DC6D04AA",
         borderColor: 'orange',
         borderRadius: "3",
