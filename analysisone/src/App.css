@@ -108,6 +108,15 @@
   gap: 32px;
 }
 
+.chart-row{
+  display: flex;
+  flex-wrap: nowrap;
+  width: 100%;
+  margin: auto;
+  justify-content: space-between;
+  padding: 1em 8em;
+}
+
 .compareItems{
   margin: auto;
   margin-top: 50px;
@@ -438,15 +447,11 @@
 #teamA-Button{
   color: rgb(255, 35, 35);
   margin: auto;
-  width: 200px;
-  margin-top: 20px;
 }
 
 #teamB-Button{
   color: #ED9642;
   margin: auto;
-  width: 200px;
-  margin-top: 20px;
 }
 
 #team-text{
@@ -575,7 +580,7 @@ h1{
   right: 0;
   bottom: 0;
   background-color: #4a3875;
-  box-shadow: inset 0px 0px 12px 4px rgba(0, 0, 0, 0.85), inset 0px 0px 2px 1px rgba(0, 0, 0, 0.384);
+  box-shadow: inset 0px 4px 12px 2px rgba(0, 0, 0, 0.747), inset 0px 0px 2px 1px rgba(0, 0, 0, 0.384), inset 0px -2px 2px rgba(185, 178, 223, 0.384);
   -webkit-transition: .2s;
   transition: .2s;
 }
@@ -588,13 +593,14 @@ h1{
   left: 6px;
   bottom: 6px;
   background-color: hsl(258, 100%, 80%);
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.747), 0px 0px 2px rgba(0, 0, 0, 0.384), 0px -2px rgba(185, 178, 223, 0.384);
   -webkit-transition: .2s;
   transition: .2s;
 }
 
 input:checked + .slider {
   background-color: #6021f3;
-  box-shadow: inset 0px 0px 12px 4px rgba(0, 0, 0, 0.85), inset 0px 0px 2px 1px rgba(0, 0, 0, 0.384);
+  box-shadow: inset 0px 4px 12px 2px rgba(0, 0, 0, 0.85), inset 0px 0px 2px 1px rgba(0, 0, 0, 0.384), inset 0px -2px 2px rgba(184, 223, 233, 0.384);
 }
 
 input:checked + .slider:before {
@@ -618,6 +624,10 @@ input:checked + .slider:before {
   text-align: center;
 }
 
+.current-year-text{
+  width: 128px;
+}
+
 .team1Progress{
   height: 64px;
   float: left;
@@ -632,6 +642,23 @@ input:checked + .slider:before {
 
 #team2Progress{
   background: linear-gradient(to right, rgba(187, 0, 0, 0), rgb(9, 110, 177));
+}
+
+.year-row{
+  display: flex;
+  color: rgb(218, 218, 218);
+  gap: 32px;
+  font-size: 32px;
+}
+
+.year-change-button{
+  border: 3px solid rgba(9, 16, 37, 0.247);
+  border-radius: 100%;
+  transition: all 0.2s ease;
+}
+
+.year-change-button:hover{
+  border: 3px solid rgb(28, 147, 177);
 }
 
 .Tprogress{

@@ -14,6 +14,7 @@ import { GetDataTeam2 } from '../../Team2Data';
 import DriverDetails from '../DriverDetail';
 import DateInputField from '../YearInput';
 import InfoAccordian from '../Accordian';
+import { ChevronUp, ChevronDown } from 'lucide-react';
 
 function Home() {
 
@@ -65,6 +66,13 @@ function Home() {
 
     function loadBarChart(){
         setIsToggled(false);
+    }
+
+    function changeYear(amount){
+        if((currentYear + amount) > 2025 || (currentYear + amount) < 2000){
+            return;
+        }
+        setDate(currentYear + amount);
     }
 
     console.log(Team1Data);
@@ -142,11 +150,15 @@ function Home() {
         <div className="compareTitle m-auto tomorrow-extralight" id="compareSubSection">
             <div className="compareTitleSection">
                 <h2 className="text-primary m-auto mb-3" style={{letterSpacing: '15px', borderBottom: '2px solid', width: '300px'}}>Race Year</h2>
-                <Row>
-                    <Col><button onClick={loadBarChart}><h2 id="teamA-Button" className="asys-btn team-btn">Bar Chart</h2></button></Col>
-                    <DateInputField min={2000} max={2025} onValueChange={setDate}/>
-                    <Col><button onClick={loadLineChart}><h2 id="teamB-Button" className="asys-btn">Line Chart</h2></button></Col>
-                </Row>
+                <div className="chart-row">
+                    <button onClick={loadBarChart}><h2 style={{background: isToggled? '#0000' : '#0004'}} id="teamA-Button" className="asys-btn ">Bar Chart</h2></button>
+                    <div className="year-row">
+                        <button onClick={() => changeYear(-1)} className="year-change-button"><ChevronDown size={64} /></button>
+                        <h2 style={{fontSize: '48px'}} className="text-primary current-year-text">{currentYear}</h2>
+                        <button onClick={() => changeYear(1)} className="year-change-button"><ChevronUp size={64} /></button>
+                    </div>
+                    <button onClick={loadLineChart}><h2 style={{background: !isToggled? '#0000' : '#0004'}} id="teamB-Button" className="asys-btn">Line Chart</h2></button>
+                </div>
             </div>   
         </div>
 
