@@ -61,6 +61,28 @@ export const GetDataTeam2 = async (teamName, raceYear) => {
         race.Results?.[1]?.FastestLap?.AverageSpeed?.speed !== undefined ? parseFloat(race.Results[1].FastestLap.AverageSpeed.speed) : 0
       );
 
+      const getDriverPoints = async (teamName) => {
+        const team = await axios.get(`https://api.jolpi.ca//ergast/f1/${raceYear}/constructors/${teamName}/results/`, {
+          params: {
+            limit: 100
+          }
+        });
+        const Driver1Points = team.data.MRData.RaceTable.Races.map(race => 
+          race.Results?.[0]?.points !== undefined ? Number(race.Results[0].points) : 0
+        );
+        const Driver2Points = team.data.MRData.RaceTable.Races.map(race => 
+          race.Results?.[1]?.points !== undefined ? Number(race.Results[1].points) : 0
+        );
+
+        const driver1Total = Driver1Points.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
+        const driver2Total = Driver2Points.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
+
+        const driverName1 = team.data.MRData.RaceTable.Races?.[0]?.Results?.[0]?.Driver?.givenName || 'Unknown';
+        const driverName2 = team.data.MRData.RaceTable.Races?.[0]?.Results?.[1]?.Driver?.givenName || 'Unknown';
+
+        return { Driver1Points: driver1Total, Driver2Points: driver2Total, Driver1Name: driverName1, Driver2Name: driverName2 };
+    };
+
     const data2 = {
         image: teamImage,
         color: teamColor,
@@ -89,6 +111,8 @@ export const GetDataTeam2 = async (teamName, raceYear) => {
         points: pointsD1.map((value, index) => value + pointsD2[index]),
         sampleSize: team.Races?.length || 0,  // Safely access the length
       };
+
+      data2.DriverPoints = await getDriverPoints(teamName);
     
     return data2;
   } catch (error) {

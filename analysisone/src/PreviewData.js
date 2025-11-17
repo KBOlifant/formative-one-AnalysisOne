@@ -1,5 +1,33 @@
 import axios from 'axios';
 
+import Aston from './assets/TeamsPreview/aston-martin.avif';
+import Alpine from './assets/TeamsPreview/alpine.avif';
+import Ferrari from './assets/TeamsPreview/ferrari.avif';
+import Mercedes from './assets/TeamsPreview/mercedes.avif';
+import Haas from './assets/TeamsPreview/haas.avif';
+import RacingBulls from './assets/TeamsPreview/racing-bulls.avif';
+import KickSauber from './assets/TeamsPreview/kick-sauber.avif';
+import MClaren from './assets/TeamsPreview/mclaren.avif';
+import RedBull from './assets/TeamsPreview/red-bull-racing.avif';
+import Williams from './assets/TeamsPreview/williams.avif';
+
+export const GetAvailableTeams = () => {
+  const cardDetails = [
+      {image: Alpine, title: 'Alpine', color: '#0060A8', id: 'alpine'},
+      {image: Aston, title: 'Aston Martin', color: '#135f4f', id: 'aston_martin'},
+      {image: Ferrari, title: 'Ferreri', color: '#7c0000', id: 'ferrari'},
+      {image: Haas, title: 'Haas', color: '	#B4B7B4', id: 'haas'},
+      {image: KickSauber, title: 'Kick Sauber', color: '#104d2b', id: 'sauber'},
+      {image: MClaren, title: 'MClaren', color: '#FF9800', id: 'mclaren'},
+      {image: Mercedes, title: 'Mercedes', color: '#00D2BE', id: 'mercedes'},
+      {image: RacingBulls, title: 'Racing Bulls', color: '#a0a0a0', id: 'rb'},
+      {image: RedBull, title: 'Red Bull', color: '#1E41FF', id: 'red_bull'},
+      {image: Williams, title: 'Williams', color: '#005F8C', id: 'williams'}
+    ];
+
+    return cardDetails;
+}
+
 export const GetAllTeamsData = async (raceYear, teamA, teamB) => {
 
   try {

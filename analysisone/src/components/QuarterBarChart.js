@@ -1,99 +1,77 @@
 import React from "react";
-import { Bar } from "react-chartjs-2";
+// 1. Import Doughnut instead of Bar
+import { Doughnut } from "react-chartjs-2";
 import {
   Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
-  BarElement,
+  ArcElement, 
   Title,
   Tooltip,
   Legend,
-  scales,
 } from "chart.js";
 
-ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
+ChartJS.register(ArcElement, Title, Tooltip, Legend);
 
-const BarChart = ({ apiData1, apiData2 }) => {
-  const labels = [apiData1.driver1.driverName, apiData1.driver2.driverName, apiData2.driver1.driverName, apiData2.driver2.driverName];
-  const dataset1 = [2, 5];
-  const dataset2 = [6, 7];
-  console.log(dataset1);
+// Renamed component for clarity
+const DoughnutChart = ({ apiData1, apiData2 }) => {
+    console.log(apiData2);
+    const team1_driver1_points = apiData1.DriverPoints.Driver1Points;
+    const team1_driver2_points = apiData1.DriverPoints.Driver2Points;
+    const team2_driver1_points = apiData2.DriverPoints.Driver1Points;
+    const team2_driver2_points = apiData2.DriverPoints.Driver2Points;
+
 
   const data = {
-    labels,
+    labels: [apiData1.driver1.driverName + " - " + apiData1.TeamName, apiData1.driver2.driverName + " - " + apiData1.TeamName, apiData2.driver1.driverName + " - " + apiData2.TeamName, apiData2.driver2.driverName + " - " + apiData2.TeamName],
     datasets: [
       {
-        label: apiData1.TeamName,
-        data: dataset1,
-        backgroundColor: apiData1.color + "77",
-        borderColor: apiData1.color,
-        borderRadius: "24",
-        borderWidth: "4",
-      },
-      {
-        label: apiData2.TeamName,
-        data: dataset2,
-        backgroundColor: apiData2.color + "77",
-        borderColor: apiData2.color,
-        borderRadius: "24",
-        borderWidth: "4",
+        data: [team1_driver1_points, team1_driver2_points, team2_driver1_points, team2_driver2_points], 
+
+        backgroundColor: [
+            apiData1.color + "77", 
+            apiData1.color + "BB",
+            apiData2.color + "77",
+            apiData2.color + "BB"
+        ],
+        borderColor: [
+            apiData1.color,
+            apiData1.color,
+            apiData2.color,
+            apiData2.color
+        ],
+        borderWidth: 2,
       },
     ],
   };
 
   const options = {
     plugins: {
-        legend: {
-            labels: {
-                font: {
-                    family: "Tomorrow",
-                },
-                color: "white"
-            }
-        },
-        fill: "start"
+      legend: { 
+        position: 'top', 
+        labels: {
+          font: {
+            family: "Tomorrow",
+          },
+          color: "white"
+        }
+      },
+
+        title:{
+          font: {
+            size: 26,
+            weight: 'bold', 
+            family: "tomorrow",
+          },
+          color: "white",
+          display: true,
+          text: 'Team Standings',
+        }
     },
     maintainAspectRatio: false,
     responsive: true,
-    scales: {
-        y: {
-            title: {
-                display: true,
-                text: 'Points',
-                font: {
-                    size: 14,
-                    weight: 'bold', 
-                    family: "tomorrow",
-                },
-                color: "white"
-            },
-            ticks: {
-                color: "white"
-            },
-            beginAtZero: true
-        },
-        x :{
-            ticks: {
-                font:{
-                    family: "tomorrow"
-                },
-                color: "white"
-            },
-            title:{
-                font: {
-                    size: 26,
-                    weight: 'bold', 
-                    family: "tomorrow",
-                },
-                color: "white",
-                display: true,
-                text: 'Team Standings',
-            }
-        }
-    }
-}
 
-  return <div style={{height: '400px', width: '100%'}}><Bar data={data} options={options} /></div>;
+  }
+
+  return <div style={{height: '100%', width: '100%'}}><Doughnut data={data} options={options} /></div>;
 };
 
-export default BarChart;
+export default DoughnutChart;

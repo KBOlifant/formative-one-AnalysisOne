@@ -1,4 +1,4 @@
-import { GetAllTeamsData } from '../PreviewData';
+import { GetAllTeamsData, GetAvailableTeams } from '../PreviewData';
 import { useState, useEffect } from "react";
 import BarChart from './HomeBarChart';
 import racer1 from '../assets/TeamsPreview/ferrari.avif';
@@ -6,12 +6,32 @@ import racer2 from '../assets/TeamsPreview/mercedes.avif';
 
 const BentoGrids = () => {
     const randomYear = Math.floor(Math.random() * 5) + 2020;
+
+    const [stateYear, setYearState] = useState(randomYear);
       
     const [PreviewData, setTeamData1] = useState(null);
+
+    const [teamAData, setTeamAData] = useState(null);
+    const [teamBData, setTeamBData] = useState(null);
+
+    const [loadState, setLoadState] = useState(true);
+
+    useEffect(() => {
+        if(teamAData != null && teamBData != null){
+            setLoadState(false);
+        }
+    }, [teamAData, teamBData])
     
     useEffect(() => {
-        GetAllTeamsData(randomYear, 'ferrari', 'mercedes').then(data => setTeamData1(data));
-    }, [randomYear]);
+        setTeamAData(GetAvailableTeams()[Math.floor(Math.random() * 9)]);
+        setTeamBData(GetAvailableTeams()[Math.floor(Math.random() * 9)]);
+        if(loadState === true){
+            return;
+        }
+        GetAllTeamsData(randomYear, teamAData.id, teamBData.id).then(data => {
+            setTeamData1(data);
+        });
+    }, [stateYear, loadState]);
 
     if(!PreviewData){
         return(<p>Loading...</p>)
@@ -31,19 +51,19 @@ const BentoGrids = () => {
             <div className="box" id='box-2' style={{gridArea: 'box-2'}}><h1>Perfomance <span style={{color: '#F91C1C'}}>Analysis</span></h1></div>
             <div className="box" id='box-3'style={{gridArea: 'box-3'}}>
                 <div className='racerProgressContainer'>
-                    <h1>Ferrari VS Mercedes {randomYear}</h1>
+                    <h1>{teamAData.title} VS {teamBData.title} {randomYear}</h1>
                     <div className='Tprogress'>
                         <div className='team1Progress' style={{ width: `${team1Progress}px`}} >
                             <h3 className='tomorrow-light'>{PreviewData.TeamAPoints} Points</h3>
                         </div>
-                        <img src={racer1}  />
+                        <img src={teamAData.image}  />
                     </div>
                     
                     <div className='Tprogress'>
                         <div className='team1Progress' id='team2Progress' style={{ width: `${team2Progress}px`}} >
                             <h5 className='tomorrow-light'>{PreviewData.TeamBPoints} Points</h5>
                         </div>
-                        <img src={racer2}  />
+                        <img src={teamBData.image}  />
                     </div>
                 </div>
             </div>
