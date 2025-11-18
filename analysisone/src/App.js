@@ -30,8 +30,10 @@ function App() {
   return (
     <>
     <Router>
+      <div className='mobile-block' >
+        <h1>Mobile Use Unsupported. Please Use Desktop</h1>
+      </div>
       <Navbar />
-      
       <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/Timeline" element={<Timeline />} />
