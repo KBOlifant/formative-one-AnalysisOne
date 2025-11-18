@@ -574,7 +574,7 @@ h1{
 
 @media (max-width: 1600px) {
   .mobile-block{
-  position: sticky;
+  position: fixed;
   top: 0;
   width: 100%;
   height: 100dvh;
